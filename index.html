@@ -1,153 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubh Nidhi Canteen</title>
+<meta charset="UTF-8">
+<title>Shubh Nidhi Canteen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-        header {
-            background-color: #1f2937;
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#e0e7ff,#f8fafc);
+    color:#1f2933;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
+/* PARALLAX HEADER */
+.hero{
+    background:linear-gradient(135deg,#1e3a8a,#2563eb);
+    color:white;
+    padding:60px 20px;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
 
-        header p {
-            margin-top: 8px;
-            font-size: 16px;
-        }
+.hero img{
+    height:90px;
+    margin-bottom:15px;
+}
 
-        nav {
-            background-color: #111827;
-            padding: 10px;
-            text-align: center;
-        }
+.hero h1{
+    font-size:40px;
+    margin:10px 0;
+}
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.hero p{
+    opacity:.9;
+}
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+.hero a{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 30px;
+    background:linear-gradient(135deg,#ff6b6b,#ff8787);
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+    transition:.3s;
+}
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 30px;
-        }
+.hero a:hover{
+    transform:translateY(-6px);
+}
 
-        .section {
-            background-color: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        }
+/* NAVBAR */
+nav{
+    background:#0f172a;
+    text-align:center;
+    padding:12px;
+}
 
-        .section h2 {
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            color: #111827;
-        }
+nav a{
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:600;
+}
 
-        footer {
-            background-color: #1f2937;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
+nav a:hover{color:#ff6b6b}
 
-        .highlight {
-            font-weight: bold;
-        }
-    </style>
+/* SECTIONS */
+.section{
+    max-width:1100px;
+    margin:70px auto;
+    padding:0 20px;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.section.show{
+    opacity:1;
+    transform:none;
+}
+
+.section h2{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:30px;
+}
+
+/* 3D CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+    transition:.4s;
+    transform-style:preserve-3d;
+}
+
+.card:hover{
+    transform:rotateY(8deg) rotateX(6deg) translateY(-10px);
+    box-shadow:0 30px 60px rgba(0,0,0,.4);
+}
+
+/* FOOTER */
+footer{
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero h1{font-size:30px}
+}
+</style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <h1>Shubh Nidhi Canteen</h1>
-        <p>Professional & Hygienic Food Services</p>
-    </header>
+<!-- HERO -->
+<div class="hero">
+    <img src="logo.png" alt="Logo">
+    <h1>Shubh Nidhi Canteen</h1>
+    <p>Professional • Hygienic • Affordable Food Services</p>
+    <a href="https://wa.me/919876543210">Order on WhatsApp</a>
+</div>
 
-    <!-- NAVBAR -->
-    <nav>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#details">Business Details</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<!-- NAV -->
+<nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#menu">Menu</a>
+    <a href="#details">GST</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <div class="container">
+<!-- ABOUT (OLD + NEW) -->
+<div class="section" id="about">
+<h2>About Us</h2>
+<p style="text-align:center;max-width:800px;margin:auto">
+<strong>Shubh Nidhi Canteen</strong> provides fresh, tasty and hygienic food.
+<br><br>
+👉 <b>Old command content:</b><br>
+Breakfast, Lunch, Dinner & Monthly Tiffin available.
+Office, factory & event catering with timely delivery.
+</p>
+</div>
 
-        <!-- ABOUT -->
-        <div class="section" id="about">
-            <h2>About Us</h2>
-            <p>
-                <span class="highlight">Shubh Nidhi Canteen</span> provides high-quality,
-                hygienic and affordable food services for offices, factories,
-                schools and events. We focus on cleanliness, timely delivery
-                and customer satisfaction.
-            </p>
-        </div>
+<!-- SERVICES -->
+<div class="section" id="services">
+<h2>Our Services</h2>
+<div class="cards">
+<div class="card">Office & Factory Canteen</div>
+<div class="card">Bulk Food Supply</div>
+<div class="card">Daily Meals & Tiffin</div>
+<div class="card">Event Catering</div>
+</div>
+</div>
 
-        <!-- SERVICES -->
-        <div class="section" id="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Office & Factory Canteen Services</li>
-                <li>Bulk Food Supply</li>
-                <li>Daily Meals & Tiffin Service</li>
-                <li>Event & Party Catering</li>
-            </ul>
-        </div>
+<!-- MENU -->
+<div class="section" id="menu">
+<h2>Menu</h2>
+<div class="cards">
+<div class="card">Veg Thali – ₹80</div>
+<div class="card">Special Thali – ₹120</div>
+<div class="card">Breakfast – ₹40</div>
+<div class="card">Monthly Tiffin – ₹2500</div>
+</div>
+</div>
 
-        <!-- BUSINESS DETAILS -->
-        <div class="section" id="details">
-            <h2>Business Details</h2>
-            <p><b>Business Name:</b> Shubh Nidhi Canteen</p>
-            <p><b>GST Number:</b> 22XXXXXXXXXXZ1</p>
-            <p><b>Business Type:</b> Food & Canteen Services</p>
-            <p><b>Address:</b> Your full business address here</p>
-        </div>
+<!-- GST -->
+<div class="section" id="details">
+<h2>Business Details</h2>
+<p><b>GST Number:</b> 22XXXXXXXXXXZ1</p>
+<p><b>Business Type:</b> Canteen & Catering Services</p>
+<p><b>Address:</b> Your Full Address Here</p>
+</div>
 
-        <!-- CONTACT -->
-        <div class="section" id="contact">
-            <h2>Contact Us</h2>
-            <p><b>Owner Name:</b> Rahul</p>
-            <p><b>Mobile:</b> +91 XXXXXXXXXX</p>
-            <p><b>Email:</b> your@email.com</p>
-        </div>
+<!-- CONTACT -->
+<div class="section" id="contact">
+<h2>Contact</h2>
+<p><b>Owner:</b> Rahul</p>
+<p><b>Mobile:</b> +91 XXXXXXXXXX</p>
+<p><b>Email:</b> your@email.com</p>
+</div>
 
-    </div>
+<footer>
+© 2026 Shubh Nidhi Canteen | All Rights Reserved
+</footer>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2026 Shubh Nidhi Canteen | All Rights Reserved</p>
-    </footer>
+<script>
+const sections=document.querySelectorAll('.section');
+window.addEventListener('scroll',()=>{
+    sections.forEach(sec=>{
+        if(sec.getBoundingClientRect().top<window.innerHeight-100){
+            sec.classList.add('show');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
-          
+
+            
+        
+
+  
+
+        
 
           
     

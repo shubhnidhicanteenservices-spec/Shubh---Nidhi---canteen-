@@ -2,176 +2,125 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Shubh Nidhi Canteen</title>
+<title>Shubh Nidhi Canteen | Level 3</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
 body{
-    background: radial-gradient(circle at top, #1a1a1a, #000);
+    background:radial-gradient(circle at top,#111,#000);
     color:#fff;
     overflow-x:hidden;
 }
 
-/* ===== 3D NAVBAR ===== */
+/* PARTICLES */
+canvas{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+}
+
+/* NAV */
 nav{
     position:fixed;
-    top:0;
-    width:100%;
-    padding:15px 40px;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter: blur(12px);
+    top:0;width:100%;
+    padding:15px 50px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(15px);
     z-index:1000;
 }
-
-nav h1{
-    color:#ffb703;
-    font-size:24px;
-}
-
+nav h1{color:#ffb703}
 nav a{
     color:#fff;
     margin-left:25px;
     text-decoration:none;
-    transition:0.3s;
 }
+nav a:hover{color:#ffb703}
 
-nav a:hover{
-    color:#ffb703;
-}
-
-/* ===== HERO 3D ===== */
+/* HERO */
 .hero{
     height:100vh;
     display:flex;
-    align-items:center;
     justify-content:center;
-    perspective:1000px;
+    align-items:center;
+    perspective:1200px;
 }
-
 .hero-box{
     width:85%;
-    padding:60px;
+    padding:70px;
+    border-radius:35px;
     background:rgba(255,255,255,0.08);
-    border-radius:25px;
-    box-shadow:0 30px 80px rgba(0,0,0,0.7);
+    box-shadow:0 50px 120px rgba(0,0,0,0.8);
     transform-style:preserve-3d;
-    transition:0.5s;
+    transition:.5s;
 }
-
-.hero-box:hover{
-    transform: rotateY(10deg) rotateX(5deg) scale(1.03);
-}
-
-.hero h2{
-    font-size:48px;
+.hero-box h2{
+    font-size:56px;
     color:#ffb703;
 }
-
-.hero p{
+.hero-box p{
+    font-size:20px;
     margin-top:15px;
-    font-size:18px;
     color:#ddd;
 }
 
-/* ===== INFO CARDS ===== */
-.section{
-    padding:80px 10%;
+.btns{margin-top:30px}
+.btn{
+    padding:15px 32px;
+    border-radius:50px;
+    background:#ffb703;
+    color:#000;
+    font-weight:600;
+    text-decoration:none;
+    margin-right:15px;
+    box-shadow:0 0 25px rgba(255,183,3,.6);
+    transition:.3s;
 }
+.btn.alt{
+    background:transparent;
+    color:#ffb703;
+    border:2px solid #ffb703;
+}
+.btn:hover{transform:scale(1.15)}
 
+/* INFO */
+.section{padding:110px 10%}
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:40px;
 }
-
 .card{
-    background:rgba(255,255,255,0.06);
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.6);
-    transition:0.4s;
+    background:rgba(255,255,255,0.07);
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 30px 70px rgba(0,0,0,0.7);
+    transform-style:preserve-3d;
+    transition:.5s;
 }
-
 .card:hover{
-    transform: translateY(-15px) scale(1.05);
-    background:rgba(255,183,3,0.15);
+    transform:translateY(-25px) rotateX(10deg) rotateY(-10deg);
+    background:rgba(255,183,3,0.18);
 }
+.card h3{color:#ffb703;margin-bottom:10px}
 
-.card h3{
-    color:#ffb703;
-    margin-bottom:10px;
-}
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#25D366;
+    color:#fff;
+    padding:15px 22px;
+    border-radius:50px;
+    text-decoration
 
-/* ===== FOOTER ===== */
-footer{
-    background:#000;
-    padding:30px;
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,0.1);
-}
 
-footer span{
-    color:#ffb703;
-}
-</style>
-</head>
+    
 
-<body>
 
-<nav>
-    <h1>🍽 Shubh Nidhi Canteen</h1>
-    <div>
-        <a href="#about">About</a>
-        <a href="#details">Details</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
 
-<section class="hero">
-    <div class="hero-box">
-        <h2>Premium Canteen Experience</h2>
-        <p>
-            Hygienic Food • Corporate Canteen • Fast Service  
-            <br>Modern | Trusted | Affordable
-        </p>
-    </div>
-</section>
-
-<section class="section" id="details">
-    <div class="cards">
-        <div class="card">
-            <h3>🏢 Canteen Name</h3>
-            <p>Shubh Nidhi Canteen</p>
-        </div>
-
-        <div class="card">
-            <h3>🧾 GST Number</h3>
-            <p>09XXXXXXXXXXZ</p>
-        </div>
-
-        <div class="card">
-            <h3>📍 Location</h3>
-            <p>Your Area, Your City, India</p>
-        </div>
-
-        <div class="card">
-            <h3>📞 Contact</h3>
-            <p>+91 9XXXXXXXXX</p>
-            <p>shubhnidhicanteen@gmail.com</p>
-        </div>
-    </div>
-</section>
-
-<footer id="contact">

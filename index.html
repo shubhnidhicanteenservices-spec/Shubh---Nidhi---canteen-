@@ -3,233 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <title>Shubh Nidhi Canteen</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
 body{
     margin:0;
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#e0e7ff,#f8fafc);
-    color:#1f2933;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:#fff;
+    perspective:1000px;
 }
 
-/* PARALLAX HEADER */
-.hero{
-    background:linear-gradient(135deg,#1e3a8a,#2563eb);
-    color:white;
-    padding:60px 20px;
+/* Header */
+header{
     text-align:center;
-    box-shadow:0 20px 40px rgba(0,0,0,.4);
-}
-
-.hero img{
-    height:90px;
-    margin-bottom:15px;
-}
-
-.hero h1{
-    font-size:40px;
-    margin:10px 0;
-}
-
-.hero p{
-    opacity:.9;
-}
-
-.hero a{
-    display:inline-block;
-    margin-top:20px;
-    padding:14px 30px;
-    background:linear-gradient(135deg,#ff6b6b,#ff8787);
-    color:white;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow:0 10px 25px rgba(0,0,0,.4);
-    transition:.3s;
-}
-
-.hero a:hover{
-    transform:translateY(-6px);
-}
-
-/* NAVBAR */
-nav{
-    background:#0f172a;
-    text-align:center;
-    padding:12px;
-}
-
-nav a{
-    color:white;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:600;
-}
-
-nav a:hover{color:#ff6b6b}
-
-/* SECTIONS */
-.section{
-    max-width:1100px;
-    margin:70px auto;
-    padding:0 20px;
-    opacity:0;
-    transform:translateY(40px);
-    transition:1s;
-}
-
-.section.show{
-    opacity:1;
-    transform:none;
-}
-
-.section h2{
-    text-align:center;
-    color:#1e3a8a;
-    margin-bottom:30px;
-}
-
-/* 3D CARDS */
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    padding:25px;
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 15px 30px rgba(0,0,0,.25);
-    transition:.4s;
+    padding:40px 20px;
     transform-style:preserve-3d;
+    animation:float 4s ease-in-out infinite;
 }
 
-.card:hover{
-    transform:rotateY(8deg) rotateX(6deg) translateY(-10px);
-    box-shadow:0 30px 60px rgba(0,0,0,.4);
+@keyframes float{
+    0%{transform:rotateX(0deg) translateY(0);}
+    50%{transform:rotateX(8deg) translateY(-10px);}
+    100%{transform:rotateX(0deg) translateY(0);}
 }
 
-/* FOOTER */
-footer{
-    background:#1e3a8a;
-    color:white;
-    text-align:center;
+/* Logo */
+.logo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+    transition:transform 0.5s;
+}
+.logo:hover{
+    transform:rotateY(360deg) scale(1.1);
+}
+
+/* Card */
+.card{
+    background:rgba(255,255,255,0.08);
+    margin:20px auto;
+    width:90%;
+    max-width:500px;
     padding:20px;
+    border-radius:15px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    transform-style:preserve-3d;
+    transition:transform 0.5s;
+}
+.card:hover{
+    transform:rotateY(10deg) rotateX(5deg);
 }
 
-/* MOBILE */
-@media(max-width:768px){
-.hero h1{font-size:30px}
+h1,h2{
+    text-align:center;
+}
+
+.info{
+    line-height:1.8;
+    font-size:16px;
+}
+.info span{
+    color:#00ffcc;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:15px;
+    font-size:14px;
+    opacity:0.8;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-    <img src="images/logo.png" alt="Logo">
-    <h1>Shubh Nidhi Canteen</h1>
-    <p>Professional • Hygienic • Affordable Food Services</p>
-    <a href="https://wa.me/918073088478">Order on WhatsApp</a>
+<header>
+    <img src="logo.png" class="logo" alt="Canteen Logo">
+    <h1>🍽️ Shubh Nidhi Canteen</h1>
+    <p>Fresh • Hygienic • Tasty</p>
+</header>
+
+<div class="card">
+    <h2>📄 Canteen Details</h2>
+    <div class="info">
+        <p><span>GST Number:</span> 10ABCDE1234F1Z5</p>
+        <p><span>Contact:</span> +91 9876543210</p>
+        <p><span>Email:</span> shubhnidhicanteen@gmail.com</p>
+        <p><span>Location:</span> Patna, Bihar</p>
+    </div>
 </div>
 
-<!-- NAV -->
-<nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#menu">Menu</a>
-    <a href="#details">GST</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<!-- ABOUT (OLD + NEW) -->
-<div class="section" id="about">
-<h2>About Us</h2>
-<p style="text-align:center;max-width:800px;margin:auto">
-<strong>Shubh Nidhi Canteen services</strong> provides fresh, tasty and hygienic food.
-<br><br>
-👉 <b>Old command content:</b><br>
-Breakfast, Lunch, Dinner & Monthly Tiffin available.
-Office, factory & event catering with timely delivery.
-</p>
-</div>
-
-<!-- SERVICES -->
-<div class="section" id="services">
-<h2>Our Services</h2>
-<div class="cards">
-<div class="card">Office & Factory Canteen</div>
-<div class="card">Bulk Food Supply</div>
-<div class="card">Daily Meals & Tiffin</div>
-<div class="card">Event Catering</div>
-</div>
-</div>
-
-<!-- MENU -->
-<div class="section" id="menu">
-<h2>Menu</h2>
-<div class="cards">
-<div class="card"></div>
-<div class="card">Special Thali – ₹120</div>
-<div class="card">Breakfast – ₹40</div>
-<div class="card">Monthly Tiffin – ₹2500</div>
-</div>
-</div>
-
-<!-- GST -->
-<div class="section" id="details">
-<h2>Business Details</h2>
-<p><b>GST Number:</b> 29FUXPR8376G1ZA</p>
-<p><b>Business Type:</b> Canteen & Catering Services</p>
-<p><b>Address:</b> Ground floor 384/233/40 Harohalli T, Hulugondanahalli V, Kolliganahalli P, Harohalli industrial area Ramanagara karnataka</p>
-</div>
-
-<!-- CONTACT -->
-<div class="section" id="contact">
-<h2>Contact</h2>
-<p><b>Owner:</b> Rahul</p>
-<p><b>Mobile:</b> +91 7892048605</p>
-<p><b>Email:</b> shubhnidhicanteenservices@gmail.com</p>
+<div class="card">
+    <h2>🍛 Our Services</h2>
+    <div class="info">
+        ✔ Breakfast & Lunch  
+        <br>✔ Office / Factory Canteen  
+        <br>✔ Bulk Food Supply  
+        <br>✔ Quality & Hygiene Guaranteed  
+    </div>
 </div>
 
 <footer>
-© 2026 Shubh Nidhi Canteen. powered with care.
+    © 2026 Shubh Nidhi Canteen | All Rights Reserved
 </footer>
-
-<script>
-const sections=document.querySelectorAll('.section');
-window.addEventListener('scroll',()=>{
-    sections.forEach(sec=>{
-        if(sec.getBoundingClientRect().top<window.innerHeight-100){
-            sec.classList.add('show');
-        }
-    });
-});
-</script>
 
 </body>
 </html>
-
-            
-        
-
+   
+  
   
 
-        
 
-          
-    
-        
-
-
-   
-        
-
-       

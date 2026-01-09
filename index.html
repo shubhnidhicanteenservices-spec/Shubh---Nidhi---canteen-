@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Shubh Nidhi Canteen | Final Boss</title>
+<title>Shubh Nidhi Canteen | Shubh Nidhi Canteen Services | Industrial & Corporate Catering</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -145,7 +145,31 @@ footer{
 footer span{color:#ffb703}
 </style>
 </head>
+<style>
+.menu-box {
+  background: #222; /* dark background */
+  color: #fff;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
+.menu-box h3 {
+  margin: 0;
+}
+
+.menu-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding-left: 10px;
+}
+
+.menu-items p {
+  margin: 5px 0;
+}
+</style>
 <body>
 
 <canvas id="fx"></canvas>
@@ -156,28 +180,70 @@ footer span{color:#ffb703}
 <a href="#">Home</a>
 <a href="#menu">Menu</a>
 <a href="#contact">Contact</a>
+<a href="#help">help</a>
 </div>
 </nav>
 
 <section class="hero">
 <div class="hero-box" id="hero">
-<h2>Final Boss Canteen Experience</h2>
-<p>Corporate • Industrial • Event • Daily Meal Solutions</p>
+<h2>Taste That Feels Like Home</h2>
+<p>Corporate • Industrial • Event Catering • Daily Meals</p>
 <div class="btns">
-<a class="btn" href="#contact">Order Now</a>
-<a class="btn alt" href="#menu">View Menu</a>
+<div class="btns">
+  <a class="btn" href="#menu">View Menu</a>
+  <a class="btn" href="https://wa.me/918073088478?text=Hello%20I%20want%20to%20place%20an%20order" target="_blank">WhatsApp Order</a>
+  <a class="btn" href="tel:+918073088478">Call Now</a>
+  <a class="btn" href="#contact">Corporate/Event Inquiry</a>
 </div>
+
 </div>
 </section>
 <section id="menu" class="menu-section">
   <h2>🔥 Popular Menu</h2>
 
-  <div class="menu-buttons">
-    <button onclick="showMenu('breakfast')">☀ Morning Breakfast</button>
-    <button onclick="showMenu('lunch')">🍛 Afternoon Lunch</button>
-    <button onclick="showMenu('snacks')">☕ Evening Snacks</button>
-    <button onclick="showMenu('friday')">⭐ Friday Special</button>
+  <div class="menu-container">
+    <div class="menu-box" onclick="toggleMenu('breakfast')">
+      <h3>Morning Breakfast</h3>
+      <div id="breakfast" class="menu-items">
+        <p>Dosa (plain/masala)</p>
+        <p>Poha / Upma</p>
+        <p>Idli sambar chutney</p>
+        <p>Paratha with curd</p>
+        <p>Poori saagu chutney</p>
+        <p>Lemon rice</p>
+        <p>Pulao with raitha</p>
+        <p>Tomato bath</p>
+      </div>
+    </div>
+
+    <div class="menu-box" onclick="toggleMenu('lunch')">
+      <h3>Afternoon Lunch</h3>
+      <div id="lunch" class="menu-items">
+        <p>Steamed Rice</p>
+        <p>Sambar / Rasam</p>
+        <p>Dal fry / Dal tadka</p>
+        <p>Chapati / Phulka</p>
+        <p>Mixed Veg curry</p>
+        <p>Papad / Pickle</p>
+        <p>Curd water</p>
+      </div>
+    </div>
+
+    <div class="menu-box" onclick="toggleMenu('snacks')">
+      <h3>Evening Snacks</h3>
+      <div id="snacks" class="menu-items">
+        <p>Samosa</p>
+        <p>Kachori</p>
+        <p>Pakora / Bajji</p>
+        <p>Aloo Bonda</p>
+        <p>Bread Pakoda</p>
+        <p>Masala Vada</p>
+        <p>Jalebi</p>
+        <p>Tea and Coffee</p>
+      </div>
+    </div>
   </div>
+</section>
 
   <div class="menu-content">
 
@@ -235,12 +301,14 @@ footer span{color:#ffb703}
 
 
 <footer id="contact">
-<p>📍 Your City, India | 📞 +91 9XXXXXXXXX</p>
-<p>📧 shubhnidhicanteen@gmail.com</p>
-<p>© 2026 <span>Shubh Nidhi Canteen</span> | Final Boss Edition</p>
+<p>📍 Ground floor 384/233/40 Harohalli T, Hulugondanahalli V, Kolliganahalli P, Harohalli industrial area Ramanagara karnataka | 📞 +91 7892048605</p>
+<p>📧 shubhnidhicanteenservices@gmail.com</p>
+<p>© 2026 <span>Shubh Nidhi Canteen service</span> | FSSAI Compliant • Hygienic Kitchen • Trained Staff
+Daily Fresh Ingredients • Zero Waste Cooking
+Quality You Can Taste, Hygiene You Can Trust</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919XXXXXXXXX">WhatsApp Order</a>
+<a class="whatsapp" href="https://wa.me/918073088478">WhatsApp Order</a>
 
 <script>
   // HERO 3D
@@ -257,6 +325,23 @@ function showMenu(id){
 }
 
 showMenu('breakfast');
+    <script>
+function toggleMenu(id){
+  // hide all menus first
+  document.querySelectorAll('.menu-items').forEach(item => {
+    if(item.id !== id){
+      item.style.maxHeight = 0;
+    }
+  });
+
+  // toggle clicked menu
+  const el = document.getElementById(id);
+  if(el.style.maxHeight && el.style.maxHeight !== "0px"){
+    el.style.maxHeight = 0;
+  } else {
+    el.style.maxHeight = el.scrollHeight + "px";
+  }
+}
 // PARTICLES
 const c=document.getElementById("fx"),ctx=c.getContext("2d");
 c.width=innerWidth;c.height=innerHeight;

@@ -151,7 +151,7 @@ footer span{color:#ffb703}
 <canvas id="fx"></canvas>
 
 <nav>
-<h1>🍽 Shubh Nidhi Canteen</h1>
+<h1>🍽 Shubh Nidhi Canteen service</h1>
 <div>
 <a href="#">Home</a>
 <a href="#menu">Menu</a>
@@ -169,16 +169,70 @@ footer span{color:#ffb703}
 </div>
 </div>
 </section>
+<section id="menu" class="menu-section">
+  <h2>🔥 Popular Menu</h2>
 
-<section class="section" id="menu">
-<h2>🔥 Popular Menu</h2>
-<div class="menu">
-<div class="item"><h3>Veg Thali</h3><p class="price">₹120</p></div>
-<div class="item"><h3>Special Thali</h3><p class="price">₹180</p></div>
-<div class="item"><h3>Paneer Meal</h3><p class="price">₹160</p></div>
-<div class="item"><h3>Corporate Lunch</h3><p class="price">₹200</p></div>
-</div>
+  <div class="menu-buttons">
+    <button onclick="showMenu('breakfast')">☀ Morning Breakfast</button>
+    <button onclick="showMenu('lunch')">🍛 Afternoon Lunch</button>
+    <button onclick="showMenu('snacks')">☕ Evening Snacks</button>
+    <button onclick="showMenu('friday')">⭐ Friday Special</button>
+  </div>
+
+  <div class="menu-content">
+
+    <div id="breakfast" class="menu-box">
+      <ul>
+        <li>Dosa (Plain / Masala)</li>
+        <li>Poha / Upma</li>
+        <li>Idli Sambar Chutney</li>
+        <li>Paratha with Curd</li>
+        <li>Poori Saagu</li>
+        <li>Lemon Rice</li>
+        <li>Pulao with Raita</li>
+        <li>Tomato Bath</li>
+      </ul>
+    </div>
+
+    <div id="lunch" class="menu-box">
+      <ul>
+        <li>Steamed Rice</li>
+        <li>Sambar / Rasam</li>
+        <li>Dal Fry / Dal Tadka</li>
+        <li>Chapati / Phulka</li>
+        <li>Mixed Veg Curry</li>
+        <li>Papad / Pickle</li>
+        <li>Curd / Water</li>
+      </ul>
+    </div>
+
+    <div id="snacks" class="menu-box">
+      <ul>
+        <li>Samosa</li>
+        <li>Kachori</li>
+        <li>Pakora / Bajji</li>
+        <li>Aloo Bonda</li>
+        <li>Bread Pakoda</li>
+        <li>Masala Vada</li>
+        <li>Jalebi</li>
+        <li>Tea & Coffee</li>
+      </ul>
+    </div>
+
+    <div id="friday" class="menu-box">
+      <ul>
+        <li>Veg Biryani / Pulao with Raita</li>
+        <li>Veg Curry (Aloo Gobi)</li>
+        <li>Poori / Chapati</li>
+        <li>Bonda / Vada</li>
+        <li>Gulab Jamun / Kesari Bath / Banana</li>
+      </ul>
+    </div>
+
+  </div>
 </section>
+
+
 
 <footer id="contact">
 <p>📍 Your City, India | 📞 +91 9XXXXXXXXX</p>
@@ -189,13 +243,20 @@ footer span{color:#ffb703}
 <a class="whatsapp" href="https://wa.me/919XXXXXXXXX">WhatsApp Order</a>
 
 <script>
-// HERO 3D
+  // HERO 3D
 document.addEventListener("mousemove",e=>{
 let x=(innerWidth/2-e.pageX)/16;
 let y=(innerHeight/2-e.pageY)/16;
 hero.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`;
 });
+function showMenu(id){
+  document.querySelectorAll('.menu-box')
+    .forEach(m => m.style.display = 'none');
 
+  document.getElementById(id).style.display = 'block';
+}
+
+showMenu('breakfast');
 // PARTICLES
 const c=document.getElementById("fx"),ctx=c.getContext("2d");
 c.width=innerWidth;c.height=innerHeight;

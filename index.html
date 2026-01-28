@@ -1,125 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Rahul Canteen Services</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-        header {
-            background-color: #ff6600;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        nav {
-            background-color: #333;
-            text-align: center;
-            padding: 10px;
-        }
-        nav a {
-            color: white;
-            margin: 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        section {
-            padding: 20px;
-            background-color: white;
-            margin: 15px;
-            border-radius: 8px;
-        }
-        h2 {
-            color: #ff6600;
-        }
-        .menu-item {
-            border-bottom: 1px solid #ddd;
-            padding: 8px 0;
-        }
-        .review {
-            background-color: #f9f9f9;
-            padding: 10px;
-            border-left: 4px solid #ff6600;
-            margin-bottom: 10px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Rahul Canteen | Core</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    height:100vh;
+    background:radial-gradient(circle at center,#050505,#000);
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    color:white;
+}
+
+/* PARTICLE BACKGROUND */
+canvas{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+}
+
+/* CORE */
+.core-wrap{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform-style:preserve-3d;
+    transform:translate(-50%,-50%);
+}
+
+.core{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:radial-gradient(circle,#ff8800,#ff3300);
+    box-shadow:
+        0 0 40px #ff6600,
+        0 0 80px #ff2200,
+        inset 0 0 30px #fff;
+    animation:pulse 2s infinite alternate;
+}
+
+/* ENERGY RINGS */
+.ring{
+    position:absolute;
+    inset:-40px;
+    border:2px solid rgba(255,120,0,0.4);
+    border-radius:50%;
+    animation:spin 6s linear infinite;
+}
+.ring:nth-child(2){
+    inset:-70px;
+    animation-duration:10s;
+    border-color:rgba(255,80,0,0.25);
+}
+
+/* HUD PANELS */
+.panel{
+    position:absolute;
+    width:220px;
+    padding:12px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,150,0,0.4);
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 25px rgba(255,100,0,0.4);
+    font-size:14px;
+}
+
+.panel h3{
+    color:#ff9900;
+    margin-bottom:6px;
+}
+
+.left{left:-260px;top:40px}
+.right{right:-260px;top:40px}
+.bottom{bottom:-140px;left:-110px}
+
+/* ANIMATIONS */
+@keyframes pulse{
+    from{transform:scale(1)}
+    to{transform:scale(1.15)}
+}
+@keyframes spin{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>Rahul Canteen Services</h1>
-    <p>Fresh • Hygienic • Affordable Food</p>
-</header>
+<canvas id="particles"></canvas>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#menu">Menu</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
-</nav>
+<div class="core-wrap" id="coreWrap">
 
-<section id="about">
-    <h2>About Us</h2>
-    <p>
-        Rahul Canteen Services provides fresh, hygienic and tasty food for
-        factories, offices and industrial areas. Bulk orders and daily meals available.
-    </p>
-</section>
+    <div class="ring"></div>
+    <div class="ring"></div>
 
-<section id="menu">
-    <h2>Our Menu</h2>
+    <div class="core"></div>
 
-    <div class="menu-item">Idli & Sambar</div>
-    <div class="menu-item">Masala Dosa</div>
-    <div class="menu-item">Poori Bhaji</div>
-    <div class="menu-item">Veg Thali</div>
-    <div class="menu-item">Rice & Dal</div>
-    <div class="menu-item">Chapati & Sabzi</div>
-    <div class="menu-item">Curd Rice</div>
-    <div class="menu-item">Tea & Coffee</div>
-</section>
-
-<section id="reviews">
-    <h2>Customer Reviews</h2>
-
-    <div class="review">
-        ⭐⭐⭐⭐⭐ <br>
-        Very tasty food and always on time delivery.
+    <div class="panel left">
+        <h3>MENU</h3>
+        Idli • Dosa<br>
+        Veg Thali<br>
+        Rice & Dal
     </div>
 
-    <div class="review">
-        ⭐⭐⭐⭐ <br>
-        Clean canteen and good quality food.
+    <div class="panel right">
+        <h3>SYSTEM STATUS</h3>
+        Freshness: 100%<br>
+        Hygiene: MAX<br>
+        Supply: ACTIVE
     </div>
 
-    <div class="review">
-        ⭐⭐⭐⭐⭐ <br>
-        Best canteen service in industrial area.
+    <div class="panel bottom">
+        <h3>CONTACT</h3>
+        📞 9XXXXXXXXX<br>
+        Industrial Area
     </div>
-</section>
 
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p><b>📍 Location:</b> Industrial Area, Bangalore</p>
-    <p><b>📞 Phone:</b> 9XXXXXXXXX</p>
-    <p><b>📧 Email:</b> rahulcanteen@gmail.com</p>
-</section>
+</div>
 
-<footer>
-    <p>© 2026 Rahul Canteen Services | All Rights Reserved</p>
-</footer>
+<script>
+// MOUSE 3D CONTROL
+document.addEventListener("mousemove",e=>{
+    let x=(e.clientX/window.innerWidth-0.5)*20;
+    let y=(e.clientY/window.innerHeight-0.5)*20;
+    document.getElementById("coreWrap")
+    .style.transform=`translate(-50%,-50%) rotateX(${-y}deg) rotateY(${x}deg)`;
+});
+
+// PARTICLES
+const c=document.getElementById("particles"),
+ctx=c.getContext("2d");
+function resize(){
+    c.width=innerWidth;
+    c.height=innerHeight;
+}
+resize();
+window.onresize=resize;
+
+let p=[];
+for(let i=0;i<120;i++)
+p.push({x:Math.random()*c.width,y:Math.random()*c.height,v:Math.random()*0.6+0.2});
+
+function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    ctx.fillStyle="#ff6600";
+    p.forEach(o=>{
+        ctx.beginPath();
+        ctx.arc(o.x,o.y,1.2,0,Math.PI*2);
+        ctx.fill();
+        o.y+=o.v;
+        if(o.y>c.height)o.y=0;
+    });
+    requestAnimationFrame(draw);
+}
+draw();
+</script>
 
 </body>
 </html>
+        
+  
 
+
+   

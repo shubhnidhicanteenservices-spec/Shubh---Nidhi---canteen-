@@ -2,124 +2,160 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Rahul Canteen 3D</title>
+<title>Rahul Canteen Services | Factory Food Partner</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
     margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:radial-gradient(circle at top,#111,#000);
-    font-family:Arial, sans-serif;
-    overflow:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f3f4f6;
+    color:#1f2937;
+}
+
+/* HEADER */
+header{
+    background:#0f172a;
     color:white;
-}
-
-.scene{
-    width:260px;
-    height:260px;
-    perspective:900px;
-}
-
-.cube{
-    width:100%;
-    height:100%;
-    position:relative;
-    transform-style:preserve-3d;
-    animation:spin 18s infinite linear;
-}
-
-.face{
-    position:absolute;
-    width:260px;
-    height:260px;
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.25);
-    backdrop-filter:blur(10px);
-    box-shadow:0 0 25px rgba(255,102,0,0.5);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    padding:22px;
     text-align:center;
-    padding:15px;
+}
+header h1{
+    margin:0;
+    font-size:24px;
+}
+header p{
+    margin-top:6px;
+    font-size:14px;
+    color:#cbd5f5;
 }
 
-.face h2{
-    color:#ff6600;
-    margin-bottom:10px;
+/* NAV */
+nav{
+    background:#020617;
+    text-align:center;
+    padding:10px;
+}
+nav a{
+    color:#e5e7eb;
+    margin:0 14px;
+    text-decoration:none;
+    font-size:14px;
+}
+nav a:hover{
+    color:#f97316;
 }
 
-/* Cube Faces */
-.front{transform:translateZ(130px);}
-.back{transform:rotateY(180deg) translateZ(130px);}
-.right{transform:rotateY(90deg) translateZ(130px);}
-.left{transform:rotateY(-90deg) translateZ(130px);}
-.top{transform:rotateX(90deg) translateZ(130px);}
-.bottom{transform:rotateX(-90deg) translateZ(130px);}
-
-@keyframes spin{
-    0%{transform:rotateX(0) rotateY(0);}
-    100%{transform:rotateX(360deg) rotateY(360deg);}
+/* SECTIONS */
+section{
+    max-width:950px;
+    background:white;
+    margin:20px auto;
+    padding:22px;
+    border-radius:6px;
+}
+section h2{
+    margin-top:0;
+    color:#f97316;
+    font-size:20px;
 }
 
-/* Floating glow text */
-.glow{
-    font-size:22px;
-    animation:glow 2s infinite alternate;
+/* INFO GRID */
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
 }
-@keyframes glow{
-    from{text-shadow:0 0 10px #ff6600;}
-    to{text-shadow:0 0 25px #ff6600;}
+.card{
+    border:1px solid #e5e7eb;
+    padding:14px;
+    border-radius:5px;
+    background:#f9fafb;
 }
 
-/* Pause animation on touch */
-.scene:active .cube{
-    animation-play-state:paused;
+/* MENU */
+.menu-item{
+    padding:8px 0;
+    border-bottom:1px solid #e5e7eb;
+    font-size:14px;
+}
+
+/* FOOTER */
+footer{
+    background:#0f172a;
+    color:#9ca3af;
+    text-align:center;
+    padding:14px;
+    font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="scene">
-    <div class="cube">
+<header>
+    <h1>Rahul Canteen Services</h1>
+    <p>Reliable Canteen Partner for Factories & Industrial Units</p>
+</header>
 
-        <div class="face front">
-            <h2 class="glow">Rahul Canteen</h2>
-            <p>Future of Industrial Food</p>
-        </div>
+<nav>
+    <a href="#whyus">Why Us</a>
+    <a href="#services">Services</a>
+    <a href="#menu">Sample Menu</a>
+    <a href="#compliance">Compliance</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-        <div class="face back">
-            <h2>About Us</h2>
-            <p>Fresh, hygienic meals for factories & offices.</p>
-        </div>
-
-        <div class="face right">
-            <h2>Menu</h2>
-            <p>Idli • Dosa<br>Veg Thali<br>Rice & Dal</p>
-        </div>
-
-        <div class="face left">
-            <h2>Reviews</h2>
-            <p>⭐⭐⭐⭐⭐<br>Best canteen service</p>
-        </div>
-
-        <div class="face top">
-            <h2>Bulk Orders</h2>
-            <p>Daily meals for industries</p>
-        </div>
-
-        <div class="face bottom">
-            <h2>Contact</h2>
-            <p>📞 9XXXXXXXXX<br>Bangalore</p>
-        </div>
-
+<section id="whyus">
+    <h2>Why Factory HR Choose Us</h2>
+    <div class="info-grid">
+        <div class="card">✔ Timely food supply as per shift timing</div>
+        <div class="card">✔ Hygienic kitchen & trained staff</div>
+        <div class="card">✔ Cost-effective bulk pricing</div>
+        <div class="card">✔ Flexible menu planning</div>
     </div>
-</div>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="info-grid">
+        <div class="card">Daily breakfast, lunch & dinner</div>
+        <div class="card">Worker & staff meal plans</div>
+        <div class="card">Bulk food supply for factories</div>
+        <div class="card">Special menu on demand</div>
+    </div>
+</section>
+
+<section id="menu">
+    <h2>Sample Menu</h2>
+    <div class="menu-item">Idli / Dosa / Poori</div>
+    <div class="menu-item">Veg Thali (Rice, Dal, Sabzi, Roti)</div>
+    <div class="menu-item">Curd Rice / Lemon Rice</div>
+    <div class="menu-item">Tea & Coffee</div>
+</section>
+
+<section id="compliance">
+    <h2>Food Safety & Compliance</h2>
+    <div class="info-grid">
+        <div class="card">✔ FSSAI Licensed</div>
+        <div class="card">✔ Clean & inspected kitchen</div>
+        <div class="card">✔ Safe food handling practices</div>
+        <div class="card">✔ Regular quality checks</div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact for HR & Admin</h2>
+    <p><b>📍 Service Area:</b> Industrial Area, Bangalore</p>
+    <p><b>📞 Phone:</b> 9XXXXXXXXX</p>
+    <p><b>📧 Email:</b> rahulcanteen@gmail.com</p>
+    <p><b>📄 Quotation & Trial Meal:</b> Available on request</p>
+</section>
+
+<footer>
+    © 2026 Rahul Canteen Services | Trusted Factory Food Partner
+</footer>
 
 </body>
 </html>
+   

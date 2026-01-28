@@ -6,23 +6,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* ===== BASE ===== */
+*{box-sizing:border-box}
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
     background:#f3f4f6;
     color:#1f2937;
+    perspective:1200px;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header{
-    background:#0f172a;
+    background:linear-gradient(135deg,#0f172a,#020617);
     color:white;
-    padding:22px;
+    padding:24px;
     text-align:center;
+    box-shadow:0 12px 30px rgba(0,0,0,0.4);
 }
 header h1{
     margin:0;
-    font-size:24px;
+    font-size:26px;
 }
 header p{
     margin-top:6px;
@@ -30,11 +34,12 @@ header p{
     color:#cbd5f5;
 }
 
-/* NAV */
+/* ===== NAV ===== */
 nav{
     background:#020617;
-    text-align:center;
     padding:10px;
+    text-align:center;
+    box-shadow:0 6px 16px rgba(0,0,0,0.35);
 }
 nav a{
     color:#e5e7eb;
@@ -46,13 +51,20 @@ nav a:hover{
     color:#f97316;
 }
 
-/* SECTIONS */
+/* ===== SECTION ===== */
 section{
-    max-width:950px;
+    max-width:980px;
     background:white;
-    margin:20px auto;
-    padding:22px;
-    border-radius:6px;
+    margin:22px auto;
+    padding:24px;
+    border-radius:10px;
+    transform-style:preserve-3d;
+    transition:all 0.35s ease;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+section:hover{
+    transform:translateY(-6px) scale(1.01);
+    box-shadow:0 18px 40px rgba(0,0,0,0.15);
 }
 section h2{
     margin-top:0;
@@ -60,33 +72,55 @@ section h2{
     font-size:20px;
 }
 
-/* INFO GRID */
-.info-grid{
+/* ===== GRID CARDS ===== */
+.grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:15px;
+    gap:16px;
 }
 .card{
-    border:1px solid #e5e7eb;
-    padding:14px;
-    border-radius:5px;
-    background:#f9fafb;
+    background:linear-gradient(145deg,#ffffff,#f1f5f9);
+    padding:16px;
+    border-radius:10px;
+    box-shadow:
+        6px 6px 14px rgba(0,0,0,0.08),
+        -6px -6px 14px rgba(255,255,255,0.9);
+    transition:all 0.3s ease;
+    font-size:14px;
+}
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:10px 10px 25px rgba(0,0,0,0.15);
 }
 
-/* MENU */
+/* ===== MENU ===== */
 .menu-item{
-    padding:8px 0;
-    border-bottom:1px solid #e5e7eb;
+    background:#f9fafb;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:10px;
+    font-size:14px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.06);
+}
+
+/* ===== CONTACT BOX ===== */
+.contact-box{
+    background:#f8fafc;
+    padding:18px;
+    border-radius:10px;
+    box-shadow:inset 0 0 0 rgba(0,0,0,0),
+               0 6px 18px rgba(0,0,0,0.08);
     font-size:14px;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
     background:#0f172a;
     color:#9ca3af;
     text-align:center;
-    padding:14px;
+    padding:16px;
     font-size:13px;
+    box-shadow:0 -6px 20px rgba(0,0,0,0.4);
 }
 </style>
 </head>
@@ -99,16 +133,16 @@ footer{
 </header>
 
 <nav>
-    <a href="#whyus">Why Us</a>
+    <a href="#why">Why Us</a>
     <a href="#services">Services</a>
     <a href="#menu">Sample Menu</a>
     <a href="#compliance">Compliance</a>
     <a href="#contact">Contact</a>
 </nav>
 
-<section id="whyus">
+<section id="why">
     <h2>Why Factory HR Choose Us</h2>
-    <div class="info-grid">
+    <div class="grid">
         <div class="card">✔ Timely food supply as per shift timing</div>
         <div class="card">✔ Hygienic kitchen & trained staff</div>
         <div class="card">✔ Cost-effective bulk pricing</div>
@@ -118,7 +152,7 @@ footer{
 
 <section id="services">
     <h2>Our Services</h2>
-    <div class="info-grid">
+    <div class="grid">
         <div class="card">Daily breakfast, lunch & dinner</div>
         <div class="card">Worker & staff meal plans</div>
         <div class="card">Bulk food supply for factories</div>
@@ -136,7 +170,7 @@ footer{
 
 <section id="compliance">
     <h2>Food Safety & Compliance</h2>
-    <div class="info-grid">
+    <div class="grid">
         <div class="card">✔ FSSAI Licensed</div>
         <div class="card">✔ Clean & inspected kitchen</div>
         <div class="card">✔ Safe food handling practices</div>
@@ -146,10 +180,12 @@ footer{
 
 <section id="contact">
     <h2>Contact for HR & Admin</h2>
-    <p><b>📍 Service Area:</b> Industrial Area, Bangalore</p>
-    <p><b>📞 Phone:</b> 9XXXXXXXXX</p>
-    <p><b>📧 Email:</b> rahulcanteen@gmail.com</p>
-    <p><b>📄 Quotation & Trial Meal:</b> Available on request</p>
+    <div class="contact-box">
+        <p><b>📍 Service Area:</b> Industrial Area, Bangalore</p>
+        <p><b>📞 Phone:</b> 9XXXXXXXXX</p>
+        <p><b>📧 Email:</b> rahulcanteen@gmail.com</p>
+        <p><b>📄 Quotation & Trial Meal:</b> Available on request</p>
+    </div>
 </section>
 
 <footer>
@@ -158,4 +194,3 @@ footer{
 
 </body>
 </html>
-   

@@ -2,169 +2,124 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Rahul Canteen | Core</title>
+<title>Rahul Canteen 3D</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 body{
+    margin:0;
     height:100vh;
-    background:radial-gradient(circle at center,#050505,#000);
-    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:radial-gradient(circle at top,#111,#000);
     font-family:Arial, sans-serif;
+    overflow:hidden;
     color:white;
 }
 
-/* PARTICLE BACKGROUND */
-canvas{
-    position:fixed;
-    inset:0;
-    z-index:-1;
+.scene{
+    width:260px;
+    height:260px;
+    perspective:900px;
 }
 
-/* CORE */
-.core-wrap{
-    position:absolute;
-    top:50%;
-    left:50%;
+.cube{
+    width:100%;
+    height:100%;
+    position:relative;
     transform-style:preserve-3d;
-    transform:translate(-50%,-50%);
+    animation:spin 18s infinite linear;
 }
 
-.core{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:radial-gradient(circle,#ff8800,#ff3300);
-    box-shadow:
-        0 0 40px #ff6600,
-        0 0 80px #ff2200,
-        inset 0 0 30px #fff;
-    animation:pulse 2s infinite alternate;
-}
-
-/* ENERGY RINGS */
-.ring{
+.face{
     position:absolute;
-    inset:-40px;
-    border:2px solid rgba(255,120,0,0.4);
-    border-radius:50%;
-    animation:spin 6s linear infinite;
-}
-.ring:nth-child(2){
-    inset:-70px;
-    animation-duration:10s;
-    border-color:rgba(255,80,0,0.25);
-}
-
-/* HUD PANELS */
-.panel{
-    position:absolute;
-    width:220px;
-    padding:12px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,150,0,0.4);
+    width:260px;
+    height:260px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.25);
     backdrop-filter:blur(10px);
-    box-shadow:0 0 25px rgba(255,100,0,0.4);
-    font-size:14px;
+    box-shadow:0 0 25px rgba(255,102,0,0.5);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:15px;
 }
 
-.panel h3{
-    color:#ff9900;
-    margin-bottom:6px;
+.face h2{
+    color:#ff6600;
+    margin-bottom:10px;
 }
 
-.left{left:-260px;top:40px}
-.right{right:-260px;top:40px}
-.bottom{bottom:-140px;left:-110px}
+/* Cube Faces */
+.front{transform:translateZ(130px);}
+.back{transform:rotateY(180deg) translateZ(130px);}
+.right{transform:rotateY(90deg) translateZ(130px);}
+.left{transform:rotateY(-90deg) translateZ(130px);}
+.top{transform:rotateX(90deg) translateZ(130px);}
+.bottom{transform:rotateX(-90deg) translateZ(130px);}
 
-/* ANIMATIONS */
-@keyframes pulse{
-    from{transform:scale(1)}
-    to{transform:scale(1.15)}
-}
 @keyframes spin{
-    from{transform:rotate(0deg)}
-    to{transform:rotate(360deg)}
+    0%{transform:rotateX(0) rotateY(0);}
+    100%{transform:rotateX(360deg) rotateY(360deg);}
+}
+
+/* Floating glow text */
+.glow{
+    font-size:22px;
+    animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+    from{text-shadow:0 0 10px #ff6600;}
+    to{text-shadow:0 0 25px #ff6600;}
+}
+
+/* Pause animation on touch */
+.scene:active .cube{
+    animation-play-state:paused;
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
+<div class="scene">
+    <div class="cube">
 
-<div class="core-wrap" id="coreWrap">
+        <div class="face front">
+            <h2 class="glow">Rahul Canteen</h2>
+            <p>Future of Industrial Food</p>
+        </div>
 
-    <div class="ring"></div>
-    <div class="ring"></div>
+        <div class="face back">
+            <h2>About Us</h2>
+            <p>Fresh, hygienic meals for factories & offices.</p>
+        </div>
 
-    <div class="core"></div>
+        <div class="face right">
+            <h2>Menu</h2>
+            <p>Idli • Dosa<br>Veg Thali<br>Rice & Dal</p>
+        </div>
 
-    <div class="panel left">
-        <h3>MENU</h3>
-        Idli • Dosa<br>
-        Veg Thali<br>
-        Rice & Dal
+        <div class="face left">
+            <h2>Reviews</h2>
+            <p>⭐⭐⭐⭐⭐<br>Best canteen service</p>
+        </div>
+
+        <div class="face top">
+            <h2>Bulk Orders</h2>
+            <p>Daily meals for industries</p>
+        </div>
+
+        <div class="face bottom">
+            <h2>Contact</h2>
+            <p>📞 9XXXXXXXXX<br>Bangalore</p>
+        </div>
+
     </div>
-
-    <div class="panel right">
-        <h3>SYSTEM STATUS</h3>
-        Freshness: 100%<br>
-        Hygiene: MAX<br>
-        Supply: ACTIVE
-    </div>
-
-    <div class="panel bottom">
-        <h3>CONTACT</h3>
-        📞 9XXXXXXXXX<br>
-        Industrial Area
-    </div>
-
 </div>
-
-<script>
-// MOUSE 3D CONTROL
-document.addEventListener("mousemove",e=>{
-    let x=(e.clientX/window.innerWidth-0.5)*20;
-    let y=(e.clientY/window.innerHeight-0.5)*20;
-    document.getElementById("coreWrap")
-    .style.transform=`translate(-50%,-50%) rotateX(${-y}deg) rotateY(${x}deg)`;
-});
-
-// PARTICLES
-const c=document.getElementById("particles"),
-ctx=c.getContext("2d");
-function resize(){
-    c.width=innerWidth;
-    c.height=innerHeight;
-}
-resize();
-window.onresize=resize;
-
-let p=[];
-for(let i=0;i<120;i++)
-p.push({x:Math.random()*c.width,y:Math.random()*c.height,v:Math.random()*0.6+0.2});
-
-function draw(){
-    ctx.clearRect(0,0,c.width,c.height);
-    ctx.fillStyle="#ff6600";
-    p.forEach(o=>{
-        ctx.beginPath();
-        ctx.arc(o.x,o.y,1.2,0,Math.PI*2);
-        ctx.fill();
-        o.y+=o.v;
-        if(o.y>c.height)o.y=0;
-    });
-    requestAnimationFrame(draw);
-}
-draw();
-</script>
 
 </body>
 </html>
-        
-  
-
-
-   

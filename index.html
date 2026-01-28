@@ -1,211 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shubh Nidhi Canteen | Industrial & Corporate Catering</title>
+    <meta charset="UTF-8">
+    <title>Rahul Canteen Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #ff6600;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            background-color: white;
+            margin: 15px;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #ff6600;
+        }
+        .menu-item {
+            border-bottom: 1px solid #ddd;
+            padding: 8px 0;
+        }
+        .review {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #ff6600;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<body>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Poppins, sans-serif;
-}
+<header>
+    <h1>Rahul Canteen Services</h1>
+    <p>Fresh • Hygienic • Affordable Food</p>
+</header>
 
-body{
-  background:#000 !important;
-  color:#fff;
-  overflow-x:hidden;
-}
+<nav>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-/* ✅ Canvas background */
-#bg{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-1;
-  background:#000; /* ✅ Always black */
-}
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+        Rahul Canteen Services provides fresh, hygienic and tasty food for
+        factories, offices and industrial areas. Bulk orders and daily meals available.
+    </p>
+</section>
 
-/* NAV */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:16px 50px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(18px);
-  z-index:999;
-}
-nav h1{
-  color:#ffb703;
-  font-size:24px;
-}
-nav a{
-  color:#fff;
-  margin-left:22px;
-  text-decoration:none;
-  font-weight:500;
-}
-nav a:hover{color:#ffb703}
+<section id="menu">
+    <h2>Our Menu</h2>
 
-/* HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding-top:60px;
-  perspective:1500px;
-}
-.hero-box{
-  width:88%;
-  padding:70px;
-  background:rgba(255,255,255,0.09);
-  border-radius:40px;
-  box-shadow:0 60px 160px rgba(0,0,0,0.9);
-  transform-style:preserve-3d;
-  transition:.35s;
-}
-.hero-box h2{
-  font-size:55px;
-  color:#ffb703;
-  text-shadow:0 0 30px rgba(255,183,3,.6);
-}
-.hero-box p{
-  margin-top:15px;
-  font-size:20px;
-  color:#ddd;
-}
-.btns{margin-top:30px; display:flex; flex-wrap:wrap; gap:14px;}
-.btn{
-  padding:14px 30px;
-  border-radius:60px;
-  background:#ffb703;
-  color:#000;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:0 0 35px rgba(255,183,3,.8);
-  transition:.25s;
-}
-.btn.alt{
-  background:transparent;
-  color:#ffb703;
-  border:2px solid #ffb703;
-}
-.btn:hover{transform:scale(1.08);}
+    <div class="menu-item">Idli & Sambar</div>
+    <div class="menu-item">Masala Dosa</div>
+    <div class="menu-item">Poori Bhaji</div>
+    <div class="menu-item">Veg Thali</div>
+    <div class="menu-item">Rice & Dal</div>
+    <div class="menu-item">Chapati & Sabzi</div>
+    <div class="menu-item">Curd Rice</div>
+    <div class="menu-item">Tea & Coffee</div>
+</section>
 
-/* SECTION */
-.section{
-  padding:120px 10%;
-}
-.section h2{
-  text-align:center;
-  font-size:42px;
-  margin-bottom:50px;
-  color:#ffb703;
-}
+<section id="reviews">
+    <h2>Customer Reviews</h2>
 
-/* MENU BLOCKS */
-.menu-block{
-  margin-bottom:40px;
-  padding:25px;
-  border-radius:18px;
-  background:rgba(255,255,255,0.07);
-  box-shadow:0 20px 60px rgba(0,0,0,0.75);
-}
-.menu-block h3{
-  color:#ffb703;
-  font-size:24px;
-  margin-bottom:15px;
-}
-.menu-items{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:10px 25px;
-}
-.menu-items p{
-  padding:8px 10px;
-  border-radius:12px;
-  background:rgba(0,0,0,0.35);
-  border:1px solid rgba(255,255,255,0.08);
-}
+    <div class="review">
+        ⭐⭐⭐⭐⭐ <br>
+        Very tasty food and always on time delivery.
+    </div>
 
-/* REVIEW */
-.review-box{
-  max-width:520px;
-  margin:20px auto;
-  background:rgba(255,255,255,0.08);
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 10px 40px rgba(0,0,0,0.7);
-}
-.review-box h2{
-  text-align:center;
-  margin-bottom:15px;
-  color:#ffb703;
-}
-.review-box input,
-.review-box textarea,
-.review-box select{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,0.2);
-  background:rgba(0,0,0,0.4);
-  color:#fff;
-  outline:none;
-}
-.review-box button{
-  width:100%;
-  padding:10px;
-  background:#ffb703;
-  color:#000;
-  border:none;
-  font-size:16px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:700;
-}
-.review-box button:hover{
-  opacity:0.9;
-}
+    <div class="review">
+        ⭐⭐⭐⭐ <br>
+        Clean canteen and good quality food.
+    </div>
 
-.review-list{
-  max-width:520px;
-  margin:20px auto;
-}
-.single-review{
-  background:rgba(255,255,255,0.08);
-  padding:15px;
-  margin-bottom:10px;
-  border-radius:12px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.5);
-}
-.stars{color:gold}
+    <div class="review">
+        ⭐⭐⭐⭐⭐ <br>
+        Best canteen service in industrial area.
+    </div>
+</section>
 
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  background:#25D366;
-  color:#fff;
-  padding:14px 20px;
-  border-radius:60px;
-  font-weight:700;
-  text-decoration:none;
-  box-shadow:0 0 40px rgba(0,0,0,.9);
-  animation:pulse 1.4s infinite;
-}
-@keyframes pulse{
-  0%{transform:scal
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p><b>📍 Location:</b> Industrial Area, Bangalore</p>
+    <p><b>📞 Phone:</b> 9XXXXXXXXX</p>
+    <p><b>📧 Email:</b> rahulcanteen@gmail.com</p>
+</section>
+
+<footer>
+    <p>© 2026 Rahul Canteen Services | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
+

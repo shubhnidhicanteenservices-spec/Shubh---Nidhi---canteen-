@@ -237,7 +237,28 @@ Audit-ready documentation with input tax credit support.</p>
     </div>
   </div>
 </section>
+<section id="reviews">
 
+  <h2>Client Reviews</h2>
+
+  <div class="review-container">
+  </div>
+
+  <div class="review-form">
+    <h3>Add Your Review</h3>
+    <input type="text" id="name" placeholder="Your Name" required>
+    <textarea id="message" placeholder="Write your review..." required></textarea>
+    <select id="rating">
+      <option value="5">⭐⭐⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="1">⭐</option>
+    </select>
+    <button onclick="submitReview()">Submit Review</button>
+  </div>
+
+</section>
 
 <!-- SOUTH INDIAN -->
 <div class="menu-card">
@@ -334,35 +355,6 @@ Audit-ready documentation with input tax credit support.</p>
 <p>Salad</p>
 <p>Pickle</p>
 </div>
-<section class="review-section">
-  <h2>Client Reviews</h2>
-
-  <div class="review-card">
-    <div class="stars">
-      <span class="star active">★</span>
-      <span class="star active">★</span>
-      <span class="star active">★</span>
-      <span class="star active">★</span>
-      <span class="star">★</span>
-    </div>
-    <p>"Consistent food quality and perfect for large factory orders."</p>
-    <h4>– HR Manager, Manufacturing Unit</h4>
-  </div>
-
-  <div class="review-card">
-    <div class="stars">
-      <span class="star active">★</span>
-      <span class="star active">★</span>
-      <span class="star active">★</span>
-      <span class="star active">★</span>
-      <span class="star active">★</span>
-    </div>
-    <p>"Highly professional team with end-to-end canteen management."</p>
-    <h4>– Facility and Food services Manager</h4>
-  </div>
-</section>
-</div>
-
 <!-- BULK ORDER -->
 <section id="order">
   <h2 class="section-title">Bulk Order Calculator</h2>
@@ -432,6 +424,27 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 </script>
+<script>
+function submitReview() {
+  const name = document.getElementById("name").value;
+  const message = document.getElementById("message").value;
+  const rating = document.getElementById("rating").value;
 
+  if (name && message) {
+    const container = document.querySelector(".review-container");
+
+    const review = document.createElement("div");
+    review.classList.add("review-card");
+
+   review.innerHTML = `
+  <h4>${name}</h4>
+  <p>${message}</p>
+  <p>${"⭐".repeat(rating)}</p>
+`;
+
+    container.appendChild(review);
+  }
+}
+</script>
 </body>
 </html>

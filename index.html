@@ -206,7 +206,7 @@ footer{
 <!-- HERO -->
 <div class="hero">
   <div class="hero-text">
-    <h1>End-to-End Workforce <span>Nutrition Ecosysten</span></h1>
+    <h1>End-to-End Workforce <span>Nutrition Ecosystem</span></h1>
     <p>Designed for large-scale daily food operations.</p>
     <button onclick="scrollToOrder()">Request Quotation</button>
   </div>
@@ -231,7 +231,9 @@ footer{
     </div>
     <div class="service-box">
       <h3>🧾 GST & Invoice</h3>
-      <p>Complete billing & compliance support.</p>
+      <p>100% GST-compliant invoicing with accurate tax breakup.
+Monthly billing statements with complete transparency.
+Audit-ready documentation with input tax credit support.</p>
     </div>
   </div>
 </section>
@@ -332,7 +334,33 @@ footer{
 <p>Salad</p>
 <p>Pickle</p>
 </div>
+<section class="review-section">
+  <h2>Client Reviews</h2>
 
+  <div class="review-card">
+    <div class="stars">
+      <span class="star active">★</span>
+      <span class="star active">★</span>
+      <span class="star active">★</span>
+      <span class="star active">★</span>
+      <span class="star">★</span>
+    </div>
+    <p>"Consistent food quality and perfect for large factory orders."</p>
+    <h4>– HR Manager, Manufacturing Unit</h4>
+  </div>
+
+  <div class="review-card">
+    <div class="stars">
+      <span class="star active">★</span>
+      <span class="star active">★</span>
+      <span class="star active">★</span>
+      <span class="star active">★</span>
+      <span class="star active">★</span>
+    </div>
+    <p>"Highly professional team with end-to-end canteen management."</p>
+    <h4>– Facility and Food services Manager</h4>
+  </div>
+</section>
 </div>
 
 <!-- BULK ORDER -->
@@ -353,24 +381,6 @@ footer{
   <p><strong>GSTIN:</strong>29FUXPR8376G1ZA</p>
 </footer>
   <script>
-const container = document.querySelector('.review-container');
-let scrollAmount = 0;
-
-setInterval(() => {
-  if(container){
-    scrollAmount += 350;
-    if(scrollAmount >= container.scrollWidth){
-      scrollAmount = 0;
-    }
-    container.scrollTo({
-      left: scrollAmount,
-      behavior: 'smooth'
-    });
-  }
-}, 3000);
-</script>
-
-<script>
 function calculate(){
   let plates=document.getElementById("plates").value;
   let price=document.getElementById("price").value;

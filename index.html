@@ -2,195 +2,279 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Rahul Canteen Services | Factory Food Partner</title>
+<title>Elite Factory Canteen Solutions</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* ===== BASE ===== */
-*{box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f3f4f6;
-    color:#1f2937;
-    perspective:1200px;
+  background:#0b0f1a;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* ===== HEADER ===== */
-header{
-    background:linear-gradient(135deg,#0f172a,#020617);
-    color:white;
-    padding:24px;
-    text-align:center;
-    box-shadow:0 12px 30px rgba(0,0,0,0.4);
-}
-header h1{
-    margin:0;
-    font-size:26px;
-}
-header p{
-    margin-top:6px;
-    font-size:14px;
-    color:#cbd5f5;
-}
-
-/* ===== NAV ===== */
+/* ===== NAVBAR ===== */
 nav{
-    background:#020617;
-    padding:10px;
-    text-align:center;
-    box-shadow:0 6px 16px rgba(0,0,0,0.35);
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+  z-index:1000;
 }
+
+nav h2{
+  color:#00ffd5;
+  letter-spacing:1px;
+}
+
 nav a{
-    color:#e5e7eb;
-    margin:0 14px;
-    text-decoration:none;
-    font-size:14px;
-}
-nav a:hover{
-    color:#f97316;
+  color:#fff;
+  text-decoration:none;
+  margin-left:25px;
+  font-weight:500;
 }
 
-/* ===== SECTION ===== */
+/* ===== HERO ===== */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:120px 80px;
+}
+
+.hero-text{
+  max-width:600px;
+}
+
+.hero-text h1{
+  font-size:52px;
+  line-height:1.2;
+}
+
+.hero-text span{
+  color:#00ffd5;
+}
+
+.hero-text p{
+  margin:20px 0;
+  color:#ccc;
+}
+
+.hero-text button{
+  padding:14px 30px;
+  background:#00ffd5;
+  border:none;
+  color:#000;
+  font-weight:600;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+/* ===== 3D CARD ===== */
+.hero-card{
+  width:380px;
+  height:380px;
+  background:linear-gradient(135deg,#00ffd5,#0050ff);
+  border-radius:30px;
+  box-shadow:0 30px 80px rgba(0,255,213,0.4);
+  transform-style:preserve-3d;
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(0px) rotateX(0deg);}
+  50%{transform:translateY(-20px) rotateX(5deg);}
+  100%{transform:translateY(0px) rotateX(0deg);}
+}
+
+/* ===== SECTIONS ===== */
 section{
-    max-width:980px;
-    background:white;
-    margin:22px auto;
-    padding:24px;
-    border-radius:10px;
-    transform-style:preserve-3d;
-    transition:all 0.35s ease;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-section:hover{
-    transform:translateY(-6px) scale(1.01);
-    box-shadow:0 18px 40px rgba(0,0,0,0.15);
-}
-section h2{
-    margin-top:0;
-    color:#f97316;
-    font-size:20px;
+  padding:100px 80px;
 }
 
-/* ===== GRID CARDS ===== */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:16px;
+.section-title{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:60px;
 }
-.card{
-    background:linear-gradient(145deg,#ffffff,#f1f5f9);
-    padding:16px;
-    border-radius:10px;
-    box-shadow:
-        6px 6px 14px rgba(0,0,0,0.08),
-        -6px -6px 14px rgba(255,255,255,0.9);
-    transition:all 0.3s ease;
-    font-size:14px;
+
+/* ===== SERVICES ===== */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
 }
-.card:hover{
-    transform:translateY(-4px);
-    box-shadow:10px 10px 25px rgba(0,0,0,0.15);
+
+.service-box{
+  background:#131a2a;
+  padding:30px;
+  border-radius:20px;
+  transition:0.4s;
+}
+
+.service-box:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 20px 50px rgba(0,255,213,0.2);
+}
+
+.service-box h3{
+  color:#00ffd5;
+  margin-bottom:10px;
 }
 
 /* ===== MENU ===== */
-.menu-item{
-    background:#f9fafb;
-    padding:12px;
-    border-radius:8px;
-    margin-bottom:10px;
-    font-size:14px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.06);
+.menu{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
 }
 
-/* ===== CONTACT BOX ===== */
-.contact-box{
-    background:#f8fafc;
-    padding:18px;
-    border-radius:10px;
-    box-shadow:inset 0 0 0 rgba(0,0,0,0),
-               0 6px 18px rgba(0,0,0,0.08);
-    font-size:14px;
+.menu-card{
+  background:#101728;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+}
+
+.menu-card h4{
+  margin-bottom:10px;
+}
+
+/* ===== ORDER CALCULATOR ===== */
+.calculator{
+  max-width:500px;
+  margin:auto;
+  background:#131a2a;
+  padding:40px;
+  border-radius:25px;
+}
+
+.calculator input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:10px;
+}
+
+.calculator button{
+  width:100%;
+  padding:14px;
+  background:#00ffd5;
+  border:none;
+  font-weight:600;
+  margin-top:15px;
 }
 
 /* ===== FOOTER ===== */
 footer{
-    background:#0f172a;
-    color:#9ca3af;
-    text-align:center;
-    padding:16px;
-    font-size:13px;
-    box-shadow:0 -6px 20px rgba(0,0,0,0.4);
+  background:#05080f;
+  padding:30px;
+  text-align:center;
+  color:#aaa;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Rahul Canteen Services</h1>
-    <p>Reliable Canteen Partner for Factories & Industrial Units</p>
-</header>
-
 <nav>
-    <a href="#why">Why Us</a>
+  <h2>EliteCanteen</h2>
+  <div>
     <a href="#services">Services</a>
-    <a href="#menu">Sample Menu</a>
-    <a href="#compliance">Compliance</a>
+    <a href="#menu">Menu</a>
+    <a href="#order">Bulk Order</a>
     <a href="#contact">Contact</a>
+  </div>
 </nav>
 
-<section id="why">
-    <h2>Why Factory HR Choose Us</h2>
-    <div class="grid">
-        <div class="card">✔ Timely food supply as per shift timing</div>
-        <div class="card">✔ Hygienic kitchen & trained staff</div>
-        <div class="card">✔ Cost-effective bulk pricing</div>
-        <div class="card">✔ Flexible menu planning</div>
-    </div>
-</section>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <h1>Factory & Corporate <span>Canteen Solutions</span></h1>
+    <p>We specialize in handling large-scale daily food supply for factories, plants & corporate campuses.</p>
+    <button onclick="scrollToOrder()">Request Quotation</button>
+  </div>
+  <div class="hero-card"></div>
+</div>
 
+<!-- SERVICES -->
 <section id="services">
-    <h2>Our Services</h2>
-    <div class="grid">
-        <div class="card">Daily breakfast, lunch & dinner</div>
-        <div class="card">Worker & staff meal plans</div>
-        <div class="card">Bulk food supply for factories</div>
-        <div class="card">Special menu on demand</div>
+  <h2 class="section-title">Our Capabilities</h2>
+  <div class="services">
+    <div class="service-box">
+      <h3>👷 500+ Meals Capacity</h3>
+      <p>Daily large volume food preparation with hygiene standards.</p>
     </div>
+    <div class="service-box">
+      <h3>📄 Monthly Contracts</h3>
+      <p>Customized pricing for long-term factory tie-ups.</p>
+    </div>
+    <div class="service-box">
+      <h3>🚚 On-Time Delivery</h3>
+      <p>Dedicated logistics for industrial zones.</p>
+    </div>
+    <div class="service-box">
+      <h3>🧾 GST & Invoice</h3>
+      <p>Complete billing & compliance support.</p>
+    </div>
+  </div>
 </section>
 
+<!-- MENU -->
 <section id="menu">
-    <h2>Sample Menu</h2>
-    <div class="menu-item">Idli / Dosa / Poori</div>
-    <div class="menu-item">Veg Thali (Rice, Dal, Sabzi, Roti)</div>
-    <div class="menu-item">Curd Rice / Lemon Rice</div>
-    <div class="menu-item">Tea & Coffee</div>
+  <h2 class="section-title">Sample Menu</h2>
+  <div class="menu">
+    <div class="menu-card"><h4>South Indian Meals</h4><p>₹70 – ₹120</p></div>
+    <div class="menu-card"><h4>North Indian Meals</h4><p>₹80 – ₹140</p></div>
+    <div class="menu-card"><h4>Breakfast Combo</h4><p>₹40 – ₹70</p></div>
+    <div class="menu-card"><h4>Evening Snacks</h4><p>₹30 – ₹60</p></div>
+  </div>
 </section>
 
-<section id="compliance">
-    <h2>Food Safety & Compliance</h2>
-    <div class="grid">
-        <div class="card">✔ FSSAI Licensed</div>
-        <div class="card">✔ Clean & inspected kitchen</div>
-        <div class="card">✔ Safe food handling practices</div>
-        <div class="card">✔ Regular quality checks</div>
-    </div>
+<!-- BULK ORDER -->
+<section id="order">
+  <h2 class="section-title">Bulk Order Calculator</h2>
+  <div class="calculator">
+    <input type="number" id="plates" placeholder="Number of Plates">
+    <input type="number" id="price" placeholder="Price per Plate">
+    <button onclick="calculate()">Calculate Total</button>
+    <h3 id="total"></h3>
+  </div>
 </section>
 
-<section id="contact">
-    <h2>Contact for HR & Admin</h2>
-    <div class="contact-box">
-        <p><b>📍 Service Area:</b> Industrial Area, Bangalore</p>
-        <p><b>📞 Phone:</b> 9XXXXXXXXX</p>
-        <p><b>📧 Email:</b> rahulcanteen@gmail.com</p>
-        <p><b>📄 Quotation & Trial Meal:</b> Available on request</p>
-    </div>
-</section>
-
-<footer>
-    © 2026 Rahul Canteen Services | Trusted Factory Food Partner
+<footer id="contact">
+  <p>📞 +91 XXXXXXXXXX | 📍 Industrial Area Canteen Services</p>
+  <p>© 2026 Elite Factory Canteen</p>
 </footer>
+
+<script>
+function calculate(){
+  let plates=document.getElementById("plates").value;
+  let price=document.getElementById("price").value;
+  let total=plates*price;
+  document.getElementById("total").innerText="Total Amount: ₹"+total;
+}
+
+function scrollToOrder(){
+  document.getElementById("order").scrollIntoView({behavior:'smooth'});
+}
+</script>
 
 </body>
 </html>

@@ -423,7 +423,6 @@ document.addEventListener("DOMContentLoaded", function(){
   }, 3500);
 
 });
-</script>
 <script>
 function submitReview() {
   const name = document.getElementById("name").value;
@@ -435,7 +434,28 @@ function submitReview() {
 
     const review = document.createElement("div");
     review.classList.add("review-card");
+<script>
+function openForm() {
+  document.getElementById("quotePopup").style.display = "flex";
+}
 
+function closeForm() {
+  document.getElementById("quotePopup").style.display = "none";
+}
+
+function submitQuote() {
+  const company = document.getElementById("Shubh Nidhi Canteen Service").value;
+  const person = document.getElementById("Rahul").value;
+
+  if(company && person) {
+    alert("Quotation Request Submitted Successfully!");
+    closeForm();
+  } else {
+    alert("Please fill all required fields.");
+  }
+}
+</script>
+  
    review.innerHTML = `
   <h4>${name}</h4>
   <p>${message}</p>
@@ -446,5 +466,6 @@ function submitReview() {
   }
 }
 </script>
+  
 </body>
 </html>

@@ -180,7 +180,23 @@ section{
   font-weight:600;
   margin-top:15px;
 }
+.nav-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
+.nav-brand img{
+  width:55px;
+  height:auto;
+}
+
+.nav-brand span{
+  font-size:28px;
+  font-weight:800;
+  color:#20e3b2;
+  letter-spacing:1px;
+}
 /* ===== FOOTER ===== */
 footer{
   background:#05080f;
@@ -194,7 +210,11 @@ footer{
 <body>
 
 <nav>
-  <h2>SHUBH NIDHI CANTEEN SERVICES</h2>
+  <div class="nav-brand">
+    <img src="logo.png" alt="Shubh Nidhi Canteen Logo">
+    <span>SHUBH NIDHI CANTEEN SERVICES</span>
+  </div>
+
   <div>
     <a href="#services">Services</a>
     <a href="#menu">Menu</a>
@@ -202,7 +222,6 @@ footer{
     <a href="#contact">Contact</a>
   </div>
 </nav>
-
 <!-- HERO -->
 <div class="hero">
   <div class="hero-text">

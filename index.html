@@ -258,102 +258,65 @@ Audit-ready documentation with input tax credit support.</p>
   </div>
 
 </section>
+.menu-section {
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
 
-<!-- SOUTH INDIAN -->
-<div class="menu-card">
-<h3 style="color:#00ffd5;">South Indian</h3>
+.menu-main-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #00ff99;
+}
 
-<h4>Breakfast</h4>
-<p>Idli</p>
-<p>Sambar Idli</p>
-<p>Rava Idli</p>
-<p>Kanchipuram Idli</p>
-<p>Thatte Idli</p>
-<p>Mini Idli</p>
-<p>Podi Idli</p>
-<p>Plain Dosa</p>
-<p>Masala Dosa</p>
-<p>Onion Dosa</p>
-<p>Set Dosa</p>
-<p>Rava Dosa</p>
-<p>Paper Dosa</p>
-<p>Ghee Dosa</p>
-<p>Pesarattu</p>
-<p>Uttapam</p>
-<p>Onion Uttapam</p>
-<p>Vegetable Uttapam</p>
-<p>Pongal</p>
-<p>Khara Pongal</p>
-<p>Sweet Pongal</p>
-<p>Upma</p>
-<p>Vegetable Upma</p>
-<p>Kesari Bath</p>
-<p>Vada</p>
-<p>Medu Vada</p>
-<p>Curd Vada</p>
+.menu-region {
+  text-align: center;
+  font-size: 28px;
+  margin: 40px 0 20px;
+  color: #7CFFB2;
+}
 
-<h4 style="margin-top:15px;">Lunch</h4>
-<p>South Indian Meals</p>
-<p>Rice</p>
-<p>Sambar</p>
-<p>Rasam</p>
-<p>Vegetable Curry</p>
-<p>Kootu</p>
-<p>Poriyal</p>
-<p>Avial</p>
-<p>Thoran</p>
-<p>Curd Rice</p>
-<p>Lemon Rice</p>
-<p>Tamarind Rice</p>
-<p>Coconut Rice</p>
-<p>Vegetable Rice</p>
-<p>Tomato Rice</p>
-<p>Bisibele Bath</p>
-<p>Vegetable Sambar Rice</p>
-<p>Curd</p>
-<p>Papad</p>
-<p>Pickle</p>
-</div>
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
 
-<!-- NORTH INDIAN -->
-<div class="menu-card">
-<h3 style="color:#00ffd5;">North Indian</h3>
+.menu-card {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0, 255, 153, 0.15);
+  transition: all 0.3s ease;
+}
 
-<h4>Breakfast</h4>
-<p>Aloo Paratha</p>
-<p>Plain Paratha</p>
-<p>Gobi Paratha</p>
-<p>Methi Paratha</p>
-<p>Poori Bhaji</p>
-<p>Chole Bhature</p>
-<p>Chole Kulche</p>
-<p>Bread Butter</p>
-<p>Bread Jam</p>
-<p>Bread Omelette</p>
-<p>Vegetable Sandwich</p>
-<p>Poha</p>
-<p>Upma</p>
+.menu-card:hover {
+  transform: translateY(-10px) scale(1.02);
+}
 
-<h4 style="margin-top:15px;">Lunch</h4>
-<p>Chapati</p>
-<p>Butter Roti</p>
-<p>Plain Rice</p>
-<p>Jeera Rice</p>
-<p>Vegetable Pulao</p>
-<p>Dal Tadka</p>
-<p>Dal Fry</p>
-<p>Rajma</p>
-<p>Chole</p>
-<p>Kadhi</p>
-<p>Aloo Curry</p>
-<p>Mixed Vegetable</p>
-<p>Bhindi Masala</p>
-<p>Cabbage Sabzi</p>
-<p>Paneer Butter Masala</p>
-<p>Curd</p>
-<p>Salad</p>
-<p>Pickle</p>
-</div>
+.menu-card h3 {
+  text-align: center;
+  color: gold;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 10px;
+}
+
+.menu-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-card ul li {
+  padding: 6px 0;
+  text-align: center;
+  font-size: 15px;
+  opacity: 0.9;
+}
 <!-- BULK ORDER -->
 <section id="order">
   <h2 class="section-title">Bulk Order Calculator</h2>

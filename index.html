@@ -454,6 +454,39 @@ function submitQuote() {
   }
 }
 </script>
+  <script>
+function submitReview() {
+  const name = document.getElementById("name").value;
+  const message = document.getElementById("message").value;
+  const rating = document.getElementById("rating").value;
+  const container = document.querySelector(".review-container");
+
+  if (name === "" || message === "") {
+    alert("Please fill all fields");
+    return;
+  }
+
+  let stars = "";
+  for (let i = 0; i < rating; i++) {
+    stars += "⭐";
+  }
+
+  const reviewDiv = document.createElement("div");
+  reviewDiv.className = "review-card";
+  reviewDiv.innerHTML = `
+    <h4>${name}</h4>
+    <p>${stars}</p>
+    <p>${message}</p>
+  `;
+
+  container.appendChild(reviewDiv);
+
+  // clear form
+  document.getElementById("name").value = "";
+  document.getElementById("message").value = "";
+  document.getElementById("rating").value = "5";
+}
+</script>
   
 </body>
 </html>

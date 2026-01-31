@@ -555,6 +555,14 @@ function submitReview() {
   document.getElementById("rating").value = "5";
 }
 </script>
+</script>
+  let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+function addReview(name, message, rating){
+    reviews.push({name, message, rating});
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+}
+</script>
   
 </body>
 </html>

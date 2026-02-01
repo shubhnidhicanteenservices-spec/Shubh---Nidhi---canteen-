@@ -235,6 +235,64 @@ footer{
   text-align:center;
   color:#aaa;
 }
+  .review-section {
+    padding: 60px;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+}
+
+.review-section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.review-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.review-form textarea {
+    resize: none;
+    height: 40px;
+}
+
+.review-form button {
+    background: #22c55e;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.review-form button:hover {
+    background: #16a34a;
+}
+
+.review-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.review-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
   .menu {
     width: 50%;
     margin-left: auto;  /* Ye magic line hai */
@@ -294,26 +352,25 @@ Monthly billing statements with complete transparency.
 Audit-ready documentation with input tax credit support.</p>
   </div>
 </section>
-<section id="reviews">
+<section id="reviews" class="review-section">
+    <h2>Client Reviews</h2>
 
-  <h2>Client Reviews</h2>
+    <div class="review-form">
+        <input type="text" id="name" placeholder="Your Name">
+        <textarea id="message" placeholder="Write your review"></textarea>
 
-  <div class="review-container">
-  </div>
+        <select id="rating">
+            <option value="5">★★★★★</option>
+            <option value="4">★★★★</option>
+            <option value="3">★★★</option>
+            <option value="2">★★</option>
+            <option value="1">★</option>
+        </select>
 
-  <div class="review-form">
-    <h3>Add Your Review</h3>
-    <input type="text" id="name" placeholder="Your Name" required>
-    <textarea id="message" placeholder="Write your review..." required></textarea>
-    <select id="rating">
-      <option value="5">⭐⭐⭐⭐⭐</option>
-      <option value="4">⭐⭐⭐⭐</option>
-      <option value="3">⭐⭐⭐</option>
-      <option value="2">⭐⭐</option>
-      <option value="1">⭐</option>
-    </select>
-    <button onclick="submitReview()">Submit Review</button>
-  </div>
+        <button onclick="submitReview()">Submit Review</button>
+    </div>
+
+    <div id="reviewContainer" class="review-container"></div>
 </section>
 <div class="menu" style="margin-top:40px;">
 
@@ -464,23 +521,8 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 
-  // AUTO SLIDE REVIEWS
-  const container = document.querySelector(".review-container");
-  let scroll = 0;
-
-  setInterval(() => {
-    if(container){
-      scroll += 350;
-      if(scroll >= container.scrollWidth){
-        scroll = 0;
-      }
-      container.scrollTo({
-        left: scroll,
-        behavior: "smooth"
-      });
-    }
-  }, 3500);
-
+ 
+    
 });
 <script>
 function submitReview() {
@@ -514,47 +556,48 @@ function submitQuote() {
   }
 }
 </script>
-  <script>
+let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+function displayReviews() {
+    const container = document.getElementById("reviewContainer");
+    container.innerHTML = "";
+
+    reviews.forEach(review => {
+        const reviewDiv = document.createElement("div");
+        reviewDiv.className = "review-card";
+        reviewDiv.innerHTML = `
+            <h4>${review.name}</h4>
+            <p>${"⭐".repeat(review.rating)}</p>
+            <p>${review.message}</p>
+        `;
+        container.appendChild(reviewDiv);
+    });
+}
+
 function submitReview() {
-  const name = document.getElementById("name").value;
-  const message = document.getElementById("message").value;
-  const rating = document.getElementById("rating").value;
-  const container = document.querySelector(".review-container");
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+    const rating = document.getElementById("rating").value;
 
-  if (name === "" || message === "") {
-    alert("Please fill all fields");
-    return;
-  }
+    if (name === "" || message === "") {
+        alert("Please fill all fields");
+        return;
+    }
 
-  let stars = "";
-  for (let i = 0; i < rating; i++) {
-    stars += "⭐";
-  }
+    const newReview = { name, message, rating };
+    reviews.push(newReview);
 
-  const reviewDiv = document.createElement("div");
-  reviewDiv.className = "review-card";
-  reviewDiv.innerHTML = `
-    <h4>${name}</h4>
-    <p>${stars}</p>
-    <p>${message}</p>
-  `;
-
-  container.appendChild(reviewDiv);
-
-  // clear form
-  document.getElementById("name").value = "";
-  document.getElementById("message").value = "";
-  document.getElementById("rating").value = "5";
-}
-</script>
-</script>
-  let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
-function addReview(name, message, rating){
-    reviews.push({name, message, rating});
     localStorage.setItem("reviews", JSON.stringify(reviews));
+
+    document.getElementById("name").value = "";
+    document.getElementById("message").value = "";
+    document.getElementById("rating").value = "5";
+
+    displayReviews();
 }
+
+displayReviews();
 </script>
-  
+ 
 </body>
 </html>

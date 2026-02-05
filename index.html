@@ -539,36 +539,49 @@ function submitReview() {
         rating: rating
     };
 
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-    reviews.push(review);
+
+// Reviews load karo pehle
+let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+function submitReview() {
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+    const rating = document.getElementById("rating").value;
+
+    if (name === "" || message === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    const newReview = { name, message, rating };
+    reviews.push(newReview);
+
     localStorage.setItem("reviews", JSON.stringify(reviews));
 
-    displayReviews();
-
+    // fields clear karo
     document.getElementById("name").value = "";
     document.getElementById("message").value = "";
+
+    displayReviews();
 }
 
 function displayReviews() {
-
-    let reviewContainer = document.getElementById("reviewContainer");
+    const reviewContainer = document.getElementById("reviewContainer");
     reviewContainer.innerHTML = "";
 
-    let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
-    reviews.forEach(function(review) {
-        let newReview = document.createElement("div");
-        newReview.innerHTML = `
-            <h4>${review.name}</h4>
-            <p>${review.message}</p>
-            <p>Rating: ${review.rating} ⭐</p>
-            <hr>
+    reviews.forEach(review => {
+        reviewContainer.innerHTML += `
+            <div>
+                <h4>${review.name}</h4>
+                <p>${review.message}</p>
+                <p>Rating: ${review.rating}</p>
+            </div>
         `;
-        reviewContainer.appendChild(newReview);
     });
 }
 
-window.onload = displayReviews;
+// Page load pe reviews show karo
+displayReviews();
 
 </script>
      

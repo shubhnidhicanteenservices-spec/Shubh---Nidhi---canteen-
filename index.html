@@ -555,7 +555,8 @@ function submitQuote() {
     alert("Please fill all required fields.");
   }
 }
-</script>
+<script>
+
 let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
 function displayReviews() {
@@ -573,6 +574,30 @@ function displayReviews() {
         container.appendChild(reviewDiv);
     });
 }
+
+function submitReview() {
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+    const rating = document.getElementById("rating").value;
+
+    if (name === "" || message === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    const newReview = { name, message, rating };
+    reviews.push(newReview);
+
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+
+    document.getElementById("name").value = "";
+    document.getElementById("message").value = "";
+
+    displayReviews();
+}
+
+displayReviews();
+
 </script>
 function submitReview() {
     const name = document.getElementById("name").value;

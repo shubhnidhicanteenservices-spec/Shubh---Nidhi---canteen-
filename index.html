@@ -540,7 +540,6 @@ function submitReview() {
     };
 
 
-// Reviews load karo pehle
 let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
 function submitReview() {
@@ -580,7 +579,6 @@ function displayReviews() {
     });
 }
 
-// Page load pe reviews show karo
 displayReviews();
 
 </script>
@@ -588,7 +586,6 @@ displayReviews();
 });
  
 let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
 function displayReviews() {
     const container = document.getElementById("reviewContainer");
     container.innerHTML = "";
@@ -596,11 +593,13 @@ function displayReviews() {
     reviews.forEach(review => {
         const reviewDiv = document.createElement("div");
         reviewDiv.className = "review-card";
+
         reviewDiv.innerHTML = `
             <h4>${review.name}</h4>
-            <p>${"⭐".repeat(review.rating)}</p>
+            <p>${"⭐".repeat(Number(review.rating))}</p>
             <p>${review.message}</p>
         `;
+
         container.appendChild(reviewDiv);
     });
 }
@@ -610,11 +609,10 @@ function submitReview() {
     const message = document.getElementById("message").value;
     const rating = document.getElementById("rating").value;
 
-    if (name === "" || message === "") {
-        alert("Please fill all fields");
-        return;
-    }
+    // save review logic...
+}
 
+displayReviews();
     const newReview = { name, message, rating };
     reviews.push(newReview);
 

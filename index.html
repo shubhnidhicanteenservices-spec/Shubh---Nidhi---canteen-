@@ -539,7 +539,7 @@ function submitReview() {
         rating: rating
     };
 
-
+  </script>
 let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
 function submitReview() {
@@ -563,7 +563,7 @@ function submitReview() {
 
     displayReviews();
 }
-
+  </script>
 function displayReviews() {
     const reviewContainer = document.getElementById("reviewContainer");
     reviewContainer.innerHTML = "";

@@ -2,51 +2,146 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SHUBH NIDHI CANTEEN SERVICES</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- GOOGLE FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Shubh Nidhi Canteen</title>
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body{
-  background:#0b0f1a;
-  color:#fff;
+  background: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+  url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c') no-repeat center center/cover;
+  color:white;
   overflow-x:hidden;
 }
 
-/* ===== NAVBAR ===== */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(10px);
+/* HERO SECTION */
+.hero{
+  height:100vh;
   display:flex;
-  justify-content:space-between;
+  flex-direction:column;
+  justify-content:center;
   align-items:center;
-  padding:15px 50px;
-  z-index:1000;
+  text-align:center;
+  padding:20px;
 }
 
-nav h2{
-  color:#00ffd5;
-  letter-spacing:1px;
+.hero h1{
+  font-size:clamp(32px,6vw,60px);
 }
 
-nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-left:25px;
-  font-weight:500;
+.hero p{
+  margin-top:15px;
+  font-size:clamp(16px,3vw,22px);
+  color:#c8facc;
 }
+
+.btn{
+  margin-top:30px;
+  padding:14px 35px;
+  background:#2ecc71;
+  border:none;
+  border-radius:30px;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#27ae60;
+}
+
+/* OVERLAY */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  opacity:0;
+  pointer-events:none;
+  transition:0.4s;
+}
+
+.overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* MENU PANEL */
+.menu-panel{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:-100%;
+  width:95%;
+  max-width:900px;
+  height:80vh;
+  background:#111;
+  border-radius:25px 25px 0 0;
+  padding:30px;
+  overflow-y:auto;
+  transition:0.6s ease;
+}
+
+/* Desktop me center popup */
+@media(min-width:768px){
+  .menu-panel{
+    top:50%;
+    bottom:auto;
+    height:70vh;
+    transform:translate(-50%, 100%);
+    border-radius:25px;
+  }
+  .menu-panel.active{
+    transform:translate(-50%, -50%);
+  }
+}
+
+.menu-panel.active{
+  bottom:0;
+}
+
+.menu-panel h2{
+  text-align:center;
+  margin-bottom:25px;
+  font-size:28px;
+}
+
+.menu-items{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;
+}
+
+.menu-card{
+  background:#1c1c1c;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.menu-card:hover{
+  transform:scale(1.05);
+  background:#2ecc71;
+  color:black;
+}
+
+/* CLOSE BUTTON */
+.close-btn{
+  position:absolute;
+  top:15px;
+  right:20px;
+  font-size:26px;
+  cursor:pointer;
+}
+
+
 
 /* ===== HERO ===== */
 .hero{
@@ -305,7 +400,29 @@ footer{
 </head>
 
 <body>
+<div class="hero">
+  <h1>🍽️ Shubh Nidhi Canteen</h1>
+  <p>Fresh • Pure Veg • Delicious Taste</p>
+  <button class="btn" onclick="openMenu()">View Menu</button>
+</div>
 
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<div class="menu-panel" id="menuPanel">
+  <span class="close-btn" onclick="closeMenu()">✖</span>
+  <h2>Our Special Menu</h2>
+
+  <div class="menu-items">
+    <div class="menu-card">Idli & Dosa</div>
+    <div class="menu-card">Paneer Butter Masala</div>
+    <div class="menu-card">Veg Biryani</div>
+    <div class="menu-card">Rajma Chawal</div>
+    <div class="menu-card">Samosa & Kachori</div>
+    <div class="menu-card">South Indian Thali</div>
+    <div class="menu-card">North Indian Thali</div>
+    <div class="menu-card">Fruit Custard</div>
+  </div>
+</div>
 <nav>
   <div class="nav-brand">
     <img src="logo.png" alt="Shubh Nidhi Canteen Logo">
@@ -370,107 +487,8 @@ Audit-ready documentation with input tax credit support.</p>
         <button onclick="submitReview()">Submit Review</button>
     </div>
 
-    <div id="reviewContainer" class="review-container"></div>
-</section>
-<div class="menu" style="margin-top:40px;">
+   
 
-<!-- SOUTH INDIAN -->
-<div class="menu-card">
-<h3 style="color:#00ffd5;">South Indian</h3>
-<h4>Breakfast</h4>
-<p>Idli</p>
-<p>Sambar Idli</p>
-<p>Rava Idli</p>
-<p>Kanchipuram Idli</p>
-<p>Thatte Idli</p>
-<p>Mini Idli</p>
-<p>Podi Idli</p>
-<p>Plain Dosa</p>
-<p>Masala Dosa</p>
-<p>Onion Dosa</p>
-<p>Set Dosa</p>
-<p>Rava Dosa</p>
-<p>Paper Dosa</p>
-<p>Ghee Dosa</p>
-<p>Pesarattu</p>
-<p>Uttapam</p>
-<p>Onion Uttapam</p>
-<p>Vegetable Uttapam</p>
-<p>Pongal</p>
-<p>Khara Pongal</p>
-<p>Sweet Pongal</p>
-<p>Upma</p>
-<p>Vegetable Upma</p>
-<p>Kesari Bath</p>
-<p>Vada</p>
-<p>Medu Vada</p>
-<p>Curd Vada</p>
-
-<h4 style="margin-top:15px;">Lunch</h4>
-<p>South Indian Meals</p>
-<p>Rice</p>
-<p>Sambar</p>
-<p>Rasam</p>
-<p>Vegetable Curry</p>
-<p>Kootu</p>
-<p>Poriyal</p>
-<p>Avial</p>
-<p>Thoran</p>
-<p>Curd Rice</p>
-<p>Lemon Rice</p>
-<p>Tamarind Rice</p>
-<p>Coconut Rice</p>
-<p>Vegetable Rice</p>
-<p>Tomato Rice</p>
-<p>Bisibele Bath</p>
-<p>Vegetable Sambar Rice</p>
-<p>Curd</p>
-<p>Papad</p>
-<p>Pickle</p>
-</div>
-
-<!-- NORTH INDIAN -->
-<div class="menu-card">
-<h3 style="color:#00ffd5;">North Indian</h3>
-
-<h4>Breakfast</h4>
-<p>Aloo Paratha</p>
-<p>Plain Paratha</p>
-<p>Gobi Paratha</p>
-<p>Methi Paratha</p>
-<p>Poori Bhaji</p>
-<p>Chole Bhature</p>
-<p>Chole Kulche</p>
-<p>Bread Butter</p>
-<p>Bread Jam</p>
-<p>Bread Omelette</p>
-<p>Vegetable Sandwich</p>
-<p>Poha</p>
-<p>Upma</p>
-
-<h4 style="margin-top:15px;">Lunch</h4>
-<p>Chapati</p>
-<p>Butter Roti</p>
-<p>Plain Rice</p>
-<p>Jeera Rice</p>
-<p>Vegetable Pulao</p>
-<p>Dal Tadka</p>
-<p>Dal Fry</p>
-<p>Rajma</p>
-<p>Chole</p>
-<p>Kadhi</p>
-<p>Aloo Curry</p>
-<p>Mixed Vegetable</p>
-<p>Bhindi Masala</p>
-<p>Cabbage Sabzi</p>
-<p>Paneer Butter Masala</p>
-<p>Curd</p>
-<p>Salad</p>
-<p>Pickle</p>
-</div>
-</section>
-  
-</div>
 <!-- BULK ORDER -->
 <section id="order">
   <h2 class="section-title">Bulk Order Calculator</h2>
@@ -540,6 +558,15 @@ function submitReview() {
     };
 
 </script>
- 
+ function openMenu(){
+  document.getElementById("menuPanel").classList.add("active");
+  document.getElementById("overlay").classList.add("active");
+}
+
+function closeMenu(){
+  document.getElementById("menuPanel").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
+}
+</script>
 </body>
 </html>

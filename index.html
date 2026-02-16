@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,31 +19,39 @@
 }
 
 body{
-  background: linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
-  url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c') no-repeat center center/cover;
-  color:white;
-  overflow-x:hidden;
-}
-
-/* HERO SECTION */
-.hero{
   height:100vh;
+  background: url('background.jpg') no-repeat center center;
+  background-size: cover;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:20px;
+  color:white;
 }
 
-.hero h1{
-  font-size:clamp(32px,6vw,60px);
+/* Dark overlay for better text visibility */
+body::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.45);
 }
 
-.hero p{
+/* Content */
+.content{
+  position:relative;
+  z-index:2;
+}
+
+h1{
+  font-size:clamp(32px,5vw,60px);
+  letter-spacing:2px;
+}
+
+p{
   margin-top:15px;
   font-size:clamp(16px,3vw,22px);
-  color:#c8facc;
+  color:#d4f5d4;
 }
 
 .btn{
@@ -56,200 +69,19 @@ body{
 .btn:hover{
   background:#27ae60;
 }
+</style>
+</head>
 
-/* OVERLAY */
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.6);
-  opacity:0;
-  pointer-events:none;
-  transition:0.4s;
-}
+<body>
 
-.overlay.active{
-  opacity:1;
-  pointer-events:auto;
-}
+<div class="content">
+  <h1>🍽️ Shubh Nidhi Canteen</h1>
+  <p>Fresh • Pure Veg • Delicious Taste</p>
+  <button class="btn">View Menu</button>
+</div>
 
-/* MENU PANEL */
-.menu-panel{
-  position:fixed;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:-100%;
-  width:95%;
-  max-width:900px;
-  height:80vh;
-  background:#111;
-  border-radius:25px 25px 0 0;
-  padding:30px;
-  overflow-y:auto;
-  transition:0.6s ease;
-}
-
-/* Desktop me center popup */
-@media(min-width:768px){
-  .menu-panel{
-    top:50%;
-    bottom:auto;
-    height:70vh;
-    transform:translate(-50%, 100%);
-    border-radius:25px;
-  }
-  .menu-panel.active{
-    transform:translate(-50%, -50%);
-  }
-}
-
-.menu-panel.active{
-  bottom:0;
-}
-
-.menu-panel h2{
-  text-align:center;
-  margin-bottom:25px;
-  font-size:28px;
-}
-
-.menu-items{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:20px;
-}
-
-.menu-card{
-  background:#1c1c1c;
-  padding:20px;
-  border-radius:15px;
-  text-align:center;
-  transition:0.3s;
-}
-
-.menu-card:hover{
-  transform:scale(1.05);
-  background:#2ecc71;
-  color:black;
-}
-
-/* CLOSE BUTTON */
-.close-btn{
-  position:absolute;
-  top:15px;
-  right:20px;
-  font-size:26px;
-  cursor:pointer;
-}
-
-
-
-/* ===== HERO ===== */
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:120px 80px;
-}
-
-.hero-text{
-  max-width:600px;
-}
-
-.hero-text h1{
-  font-size:52px;
-  line-height:1.2;
-}
-
-.hero-text span{
-  color:#00ffd5;
-}
-
-.hero-text p{
-  margin:20px 0;
-  color:#ccc;
-}
-
-.hero-text button{
-  padding:14px 30px;
-  background:#00ffd5;
-  border:none;
-  color:#000;
-  font-weight:600;
-  border-radius:30px;
-  cursor:pointer;
-}
-
-/* ===== 3D CARD ===== */
-.hero-card{
-  width:380px;
-  height:380px;
-  background:linear-gradient(135deg,#00ffd5,#0050ff);
-  border-radius:30px;
-  box-shadow:0 30px 80px rgba(0,255,213,0.4);
-  transform-style:preserve-3d;
-  animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%{transform:translateY(0px) rotateX(0deg);}
-  50%{transform:translateY(-20px) rotateX(5deg);}
-  100%{transform:translateY(0px) rotateX(0deg);}
-}
-
-/* ===== SECTIONS ===== */
-section{
-  padding:100px 80px;
-}
-
-.section-title{
-  text-align:center;
-  font-size:38px;
-  margin-bottom:60px;
-}
-
-/* ===== SERVICES ===== */
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-}
-
-.service-box{
-  background:#131a2a;
-  padding:30px;
-  border-radius:20px;
-  transition:0.4s;
-}
-
-.service-box:hover{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 20px 50px rgba(0,255,213,0.2);
-}
-
-.service-box h3{
-  color:#00ffd5;
-  margin-bottom:10px;
-}
-
-/* ===== MENU ===== */
-.menu{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-
-.menu-card{
-  background:#101728;
-  padding:25px;
-  border-radius:20px;
-  text-align:center;
-}
-
-.menu-card h4{
-  margin-bottom:10px;
-}
-
+</body>
+</html>
 /* ===== ORDER CALCULATOR ===== */
 .calculator{
   max-width:500px;

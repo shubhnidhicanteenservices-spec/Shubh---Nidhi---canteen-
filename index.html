@@ -122,73 +122,7 @@ body{
     © 2026 Shubh Nidhi Canteen Services | Pure Vegetarian Food
 </div>
   
-  <footer id="contact">
-  <p>📞 +91 8073088478/7892048605 | 📍Ground floor 384/233/40 Harohalli T, Hulugondanahalli V, Kolliganahalli P, Harohalli industrial area Ramanagara karnataka</p>
-  <p>© 2023 Shubh Nidhi Canteen Service</p>
-  <p>📧 Email: <a href="shubhnidhicanteenservices@gmail.com" style="color:#00ffd5;">shubhnidhicanteenservices@gmail.com</a></p>
-  <p><strong>GSTIN:</strong>29FUXPR8376G1ZA</p>
-</footer>
-  <script>
-function calculate(){
-  let plates=document.getElementById("plates").value;
-  let price=document.getElementById("price").value;
-  let total=plates*price;
-  document.getElementById("total").innerText="Total Amount: ₹"+total;
-}
 
-function scrollToOrder(){
-  document.getElementById("order").scrollIntoView({behavior:'smooth'});
-}
-</script>
-  <script>
-document.addEventListener("DOMContentLoaded", function(){
-
-  // STAR GENERATION
-  document.querySelectorAll(".stars").forEach(starBox => {
-    let rating = starBox.getAttribute("data-rating");
-
-    for(let i=1;i<=5;i++){
-      let star = document.createElement("span");
-      star.innerHTML = "★";
-      star.classList.add("star");
-
-      if(i <= rating){
-        setTimeout(() => {
-          star.classList.add("filled");
-        }, i * 200);
-      }
-      starBox.appendChild(star);
-    }
-  });
-<script>
-
-function submitReview() {
-
-    let name = document.getElementById("name").value;
-    let message = document.getElementById("message").value;
-    let rating = document.getElementById("rating").value;
-
-    if(name === "" || message === "") {
-        alert("Please fill all fields!");
-        return;
-    }
-
-    let review = {
-        name: name,
-        message: message,
-        rating: rating
-    };
-
-</script>
- function openMenu(){
-  document.getElementById("menuPanel").classList.add("active");
-  document.getElementById("overlay").classList.add("active");
-}
-
-function closeMenu(){
-  document.getElementById("menuPanel").classList.remove("active");
-  document.getElementById("overlay").classList.remove("active");
-}
 </script>
 </body>
 </html>
